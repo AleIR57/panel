@@ -1,0 +1,46 @@
+<div class = "card">
+    <div class = "card-header">
+        Agregar venta
+    </div>
+    <div class = "card-body">
+       <form ngNativeValidate [formGroup] = "formularioDeVentas" (ngSubmit) = "enviarDatos()">
+         
+
+           <div class="mb-3">
+            <label for = "" class= "form-label">Producto:</label>
+            <select class="form-select" aria-label="Default select example" (change) = "precio()" formControlName = "idProducto" >
+              <option value = "0" selected="selected">Selecciona un producto</option>
+              <option *ngFor="let producto of Productos; let iControl=index" value="{{producto.idProducto}}">{{producto.nombre}}</option>
+            </select>
+          </div>
+
+          
+          <div class="mb-3">
+            <label for = "" class= "form-label">Nombre del cliente: </label>
+            <select class="form-select" aria-label="Default select example" formControlName = "idCliente" >
+              <option value = "0" selected="selected">Selecciona un cliente</option>
+              <option *ngFor="let cliente of Clientes; let iControl=index" value="{{cliente.idCliente}}">{{cliente.nombres}} {{cliente.apellidos}}</option>
+            </select>
+          </div>
+
+        
+
+        <div class = "mb-3">
+            <label for = "" class= "form-label">Cantidad:</label>
+            <input required type= "number" class= "form-control" formControlName = "cantidad" name = "" id = "" aria-describedby="helpId" placeholder = "Digite la cantidad">   
+        </div>
+
+        <div class = "mb-3">
+            <label for = "" class= "form-label">Observación:</label>
+            <input required type= "text" class= "form-control" formControlName = "observacion" name = "" id = "" aria-describedby="helpId" placeholder = "Observación">   
+        </div>
+
+        <div class = "btn-group" role= "group" aria-label = "">
+            <button type= "button" type = "submit" class= "btn btn-success">Agregar</button>
+            <button type= "button" routerLink = "/listar-venta" class= "btn btn-primary">Cancelar</button>
+        </div>
+
+
+       </form>
+    </div>
+</div>

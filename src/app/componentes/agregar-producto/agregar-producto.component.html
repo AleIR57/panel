@@ -1,0 +1,25 @@
+<div class = "card">
+    <div class = "card-header">
+        Agregar usuario
+    </div>
+    <div class = "card-body">
+       <form ngNativeValidate [formGroup] = "formularioDeProductos" (ngSubmit) = "enviarDatos()">
+           <div class = "mb-3">
+               <label for = "" class= "form-label">Nombre:</label>
+               <input required type= "text" class= "form-control" formControlName = "nombre" name = "" id = "" aria-describedby="helpId" placeholder= "Nombre del producto">
+           </div>
+
+           <div class = "mb-3">
+            <label for = "" class= "form-label">Precio:</label>
+            <input required type= "number" class= "form-control" formControlName = "precio" name = "" id = "" aria-describedby="helpId" placeholder= "Precio del producto">   
+        </div>
+
+        <div class = "btn-group" role= "group" aria-label = "">
+            <button type= "button" type = "submit" class= "btn btn-success">Agregar</button>
+            <button type= "button" routerLink = "/listar-producto" class= "btn btn-primary">Cancelar</button>
+        </div>
+
+       
+       </form>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class = "card">
+    <div class = "card-header">
+        Agregar usuario
+    </div>
+    <div class = "card-body">
+       <form ngNativeValidate [formGroup] = "formularioDeClientes" (ngSubmit) = "enviarDatos()">
+           <div class = "mb-3">
+               <label for = "" class= "form-label">Nombres:</label>
+               <input required type= "text" class= "form-control" formControlName = "nombres" name = "" id = "" aria-describedby="helpId" placeholder= "Nombres del cliente">
+           </div>
+
+           <div class = "mb-3">
+            <label for = "" class= "form-label">Apellidos:</label>
+            <input required type= "text" class= "form-control" formControlName = "apellidos" name = "" id = "" aria-describedby="helpId" placeholder= "Apellidos del cliente">   
+        </div>
+
+        <div class = "mb-3">
+            <label for = "" class= "form-label">Whatsapp:</label>
+            <input required type= "text" class= "form-control" formControlName = "whatsapp" name = "" id = "" aria-describedby="helpId" placeholder= "Whatsapp del cliente">   
+        </div>
+
+        <div class = "mb-3">
+            <label for = "" class= "form-label">Telefono:</label>
+            <input required type= "text" class= "form-control" formControlName = "telefono" name = "" id = "" aria-describedby="helpId" placeholder= "Fijo o Movil">   
+        </div>
+
+        <div class = "mb-3">
+            <label for = "" class= "form-label">Correo electrónico:</label>
+            <input required type= "text" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "tuemail@ejemplo.com">   
+        </div>
+
+        <div class = "btn-group" role= "group" aria-label = "">
+            <button type= "button" type = "submit" class= "btn btn-success">Agregar</button>
+            <button type= "button" routerLink = "/listar-cliente" class= "btn btn-primary">Cancelar</button>
+        </div>
+
+       </form>
+    </div>
+</div>

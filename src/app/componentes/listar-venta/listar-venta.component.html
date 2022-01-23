@@ -1,0 +1,37 @@
+<div class = "card">
+    <div class = "card-header">
+        Clientes 
+        <a class = "btn btn-success" routerLink = "/agregar-venta/">Agregar venta</a>
+    </div>
+    <div class = "card-body">
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th># Venta</th>
+                    <th>Producto</th>
+                    <th>Cliente</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th>Método de pago</th>
+                    <th>Fecha y hora</th>
+                    <th>Observación</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let venta of Ventas; let iControl = index">
+                    <td>{{venta.idVenta}}</td>
+                    <td *ngFor = "let obj of Productos[iControl]">{{obj.nombre}}</td>
+                    <td *ngFor = "let obj2 of Clientes[iControl]">{{obj2.nombres}} {{obj2.apellidos}}</td>
+                    <td>{{venta.cantidad}}</td>
+                    <td>{{venta.precioTotal}}</td>
+                    <td>{{venta.metodoPago}}</td>
+                    <td>{{venta.fecha}}</td>
+                    <td>{{venta.observacion}}</td>
+                    <td *ngIf="venta.estado == 'En trámite'"><a routerLink = "/editar-venta/{{venta.idVenta}}">{{venta.estado}}</a></td>
+                    <td *ngIf="venta.estado != 'En trámite'">{{venta.estado}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
