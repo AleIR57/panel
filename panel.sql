@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-01-2022 a las 17:04:16
+-- Tiempo de generación: 25-01-2022 a las 00:47:08
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -98,6 +98,52 @@ INSERT INTO `productos` (`idProducto`, `nombre`, `precio`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `idRol` int(11) NOT NULL,
+  `nombre` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`idRol`, `nombre`) VALUES
+(1, 'Colaborador'),
+(2, 'Administrador');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vendedores`
+--
+
+CREATE TABLE `vendedores` (
+  `idVendedor` int(11) NOT NULL,
+  `nombre` varchar(80) NOT NULL,
+  `nombreUsuario` varchar(80) NOT NULL,
+  `correo` varchar(80) NOT NULL,
+  `contrasena` varchar(80) NOT NULL,
+  `numeroTelefono` varchar(20) NOT NULL,
+  `idRol` int(1) NOT NULL,
+  `empresa` varchar(80) NOT NULL,
+  `saldo` varchar(20) NOT NULL,
+  `creditos` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `vendedores`
+--
+
+INSERT INTO `vendedores` (`idVendedor`, `nombre`, `nombreUsuario`, `correo`, `contrasena`, `numeroTelefono`, `idRol`, `empresa`, `saldo`, `creditos`) VALUES
+(1, 'Alejandro', 'alejandro', 'alejandroriico@gmail.com', 'alejandro123', '2233245', 2, 'Empresa', '20000', '20000'),
+(2, 'vendedor1 modificado', 'vendedor1', 'vendedor1@gmail.com', 'vendedor123', '434234', 1, 'Empresa', '30000', '20000');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `ventas`
 --
 
@@ -149,6 +195,18 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`idProducto`);
 
 --
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`idRol`);
+
+--
+-- Indices de la tabla `vendedores`
+--
+ALTER TABLE `vendedores`
+  ADD PRIMARY KEY (`idVendedor`);
+
+--
 -- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
@@ -175,6 +233,18 @@ ALTER TABLE `cuentas`
 --
 ALTER TABLE `productos`
   MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `vendedores`
+--
+ALTER TABLE `vendedores`
+  MODIFY `idVendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
