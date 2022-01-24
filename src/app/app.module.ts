@@ -20,6 +20,11 @@ import { AgregarCuentaComponent } from './componentes/agregar-cuenta/agregar-cue
 import { EditarCuentaComponent } from './componentes/editar-cuenta/editar-cuenta.component';
 import { ListarCuentaComponent } from './componentes/listar-cuenta/listar-cuenta.component';
 import { ListarPantallaComponent } from './componentes/listar-pantalla/listar-pantalla.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { RegisterComponent } from './componentes/register/register.component';
+import { AgregarVendedorComponent } from './componentes/agregar-vendedor/agregar-vendedor.component';
+import { EditarVendedorComponent } from './componentes/editar-vendedor/editar-vendedor.component';
+import { ListarVendedorComponent } from './componentes/listar-vendedor/listar-vendedor.component';
 
 
 @NgModule({
@@ -37,7 +42,12 @@ import { ListarPantallaComponent } from './componentes/listar-pantalla/listar-pa
     AgregarCuentaComponent,
     EditarCuentaComponent,
     ListarCuentaComponent,
-    ListarPantallaComponent
+    ListarPantallaComponent,
+    LoginComponent,
+    RegisterComponent,
+    AgregarVendedorComponent,
+    EditarVendedorComponent,
+    ListarVendedorComponent,
   ],
   imports: [
     BrowserModule,

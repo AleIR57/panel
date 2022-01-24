@@ -38,3 +38,17 @@ export class Cuenta{
     ping!: any;
     estado!: String;
 }
+
+
+export class Vendedor{
+    id!: String;
+    nombre!: String;
+    nombreUsuario!: String;
+    correo!: String;
+    contrasena!: String;
+    numeroTelefono!: String;
+    idRol!: any;
+    empresa!: String;
+    saldo!: String;
+    creditos!: String;
+}

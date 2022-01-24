@@ -1,0 +1,35 @@
+<div class = "card">
+    <div class = "card-header">
+        Vendedores
+        <a class = "btn btn-success" routerLink = "/agregar-vendedor/">Agregar vendedor</a>
+    </div>
+    <div class = "card-body">
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Nombre de usuario</th>
+                    <th>Correo</th>
+                    <th>Número telefónico</th>
+                    <th>Rol</th>
+                    <th>Empresa</th>
+                    <th>Saldo</th>
+                    <th>Créditos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let vendedor of Vendedores; let iControl = index">
+                    <td>{{vendedor.nombre}}</td>
+                    <td>{{vendedor.nombreUsuario}}</td>
+                    <td>{{vendedor.correo}}</td>
+                    <td>{{vendedor.numeroTelefono}}</td>
+                    <td *ngFor = "let obj of Roles[iControl]">{{obj.nombre}}</td>
+                    <td>{{vendedor.empresa}}</td>
+                    <td>{{vendedor.saldo}}</td>
+                    <td>{{vendedor.creditos}}</td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-vendedor/{{vendedor.idVendedor}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(vendedor.id,iControl)">Borrar</a> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

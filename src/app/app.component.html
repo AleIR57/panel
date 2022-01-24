@@ -6,6 +6,11 @@
     <a class = "nav-item nav-link" routerLink = "listar-venta">Listar venta</a>
     <a class = "nav-item nav-link" routerLink = "listar-cuenta">Listar cuenta</a>
     <a class = "nav-item nav-link" routerLink = "listar-pantalla">Listar pantalla</a>
+    <a class = "nav-item nav-link" routerLink = "listar-vendedor">Listar vendedor</a>
+    <a class = "nav-item nav-link" routerLink = "login">Inicio de Sesión</a>
+    <li class="nav-item">
+      <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
+      </li>
   </div>
 </nav>
 

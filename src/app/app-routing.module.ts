@@ -11,8 +11,12 @@ import { AgregarCuentaComponent } from './componentes/agregar-cuenta/agregar-cue
 import { EditarCuentaComponent } from './componentes/editar-cuenta/editar-cuenta.component';
 import { ListarCuentaComponent } from './componentes/listar-cuenta/listar-cuenta.component';
 import { ListarPantallaComponent } from './componentes/listar-pantalla/listar-pantalla.component';
+import { LoginComponent } from './componentes/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AgregarVendedorComponent } from './componentes/agregar-vendedor/agregar-vendedor.component';
+import { EditarVendedorComponent } from './componentes/editar-vendedor/editar-vendedor.component';
+import { ListarVendedorComponent } from './componentes/listar-vendedor/listar-vendedor.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'agregar-cliente'},
@@ -29,6 +33,10 @@ const routes: Routes = [
   {path: 'listar-cuenta', component: ListarCuentaComponent},
   {path: 'editar-cuenta/:id', component: EditarCuentaComponent},
   {path: 'listar-pantalla', component: ListarPantallaComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'agregar-vendedor', component: AgregarVendedorComponent},
+  {path: 'listar-vendedor', component: ListarVendedorComponent},
+  {path: 'editar-vendedor/:id', component: EditarVendedorComponent},
 ];
 
 @NgModule({
