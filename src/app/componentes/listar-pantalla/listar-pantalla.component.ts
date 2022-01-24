@@ -36,7 +36,6 @@ export class ListarPantallaComponent implements OnInit {
       this.crudService.ObtenerProducto(this.Ventas[i]['idProducto']).subscribe(respuesta=>{
         
         this.Productos.push(respuesta)
-        console.log(this.Productos);
       });
     }
 
