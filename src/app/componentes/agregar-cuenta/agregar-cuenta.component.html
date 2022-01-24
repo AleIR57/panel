@@ -1,0 +1,44 @@
+<div class = "card">
+    <div class = "card-header">
+        Agregar cuenta
+    </div>
+    <div class = "card-body">
+       <form ngNativeValidate [formGroup] = "formularioDeCuentas" (ngSubmit) = "enviarDatos()">
+
+        <div class="mb-3">
+            <label for = "" class= "form-label">Producto:</label>
+            <select class="form-select" aria-label="Default select example"  formControlName = "idProducto" >
+              <option value = "0" selected="selected">Selecciona un producto</option>
+              <option *ngFor="let producto of Productos; let iControl=index" value="{{producto.idProducto}}">{{producto.nombre}}</option>
+            </select>
+          </div>
+
+           <div class = "mb-3">
+               <label for = "" class= "form-label">Correo:</label>
+               <input required type= "text" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "Correo de la cuenta">
+           </div>
+
+           <div class = "mb-3">
+            <label for = "" class= "form-label">Contraseña:</label>
+            <input required type= "text" class= "form-control" formControlName = "contrasena" name = "" id = "" aria-describedby="helpId" placeholder= "Contraseña de la cuenta">   
+        </div>
+
+        <div class = "mb-3">
+            <label for = "" class= "form-label">Nombre del perfil: </label>
+            <input required type= "text" class= "form-control" formControlName = "nombrePerfil" name = "" id = "" aria-describedby="helpId" placeholder= "Nombre del perfil de la cuenta">   
+        </div>
+
+        <div class = "mb-3">
+            <label for = "" class= "form-label">Ping</label>
+            <input required type= "text" class= "form-control" formControlName = "ping" name = "" id = "" aria-describedby="helpId" placeholder= "Ping de la cuenta">   
+        </div>
+
+
+        <div class = "btn-group" role= "group" aria-label = "">
+            <button type= "button" type = "submit" class= "btn btn-success">Agregar</button>
+            <button type= "button" routerLink = "/listar-cliente" class= "btn btn-primary">Cancelar</button>
+        </div>
+
+       </form>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { Cliente, Producto, Venta } from './Modelos';
+import { Cliente, Producto, Venta, Cuenta } from './Modelos';
 
 
 @Injectable({
@@ -11,6 +11,7 @@ export class CrudService {
   API: string= "http://localhost/crudPanel/clientes/"
   API2: string = "http://localhost/crudPanel/productos/"
   API3: string = "http://localhost/crudPanel/ventas/"
+  API4: string = "http://localhost/crudPanel/cuentas/"
 
   constructor(private clienteHttp: HttpClient) { }
 
@@ -72,6 +73,34 @@ export class CrudService {
 
   EditarVenta(id:any, datosVenta:any):Observable<any>{
     return this.clienteHttp.post(this.API3+"?actualizar="+id,datosVenta)
+  }
+
+  AgregarCuenta(datosCuenta:Cuenta):Observable<any>{
+    return this.clienteHttp.post(this.API4+"?insertar=1",datosCuenta)
+  }
+
+  ObtenerCuentas(){
+    return this.clienteHttp.get(this.API4)
+  }
+
+  ObtenerCuentasDeProducto(id:any){
+    return this.clienteHttp.get(this.API4+"?consultar2="+id)
+  }
+
+  BorrarCuenta(id:any):Observable<any>{
+    return this.clienteHttp.get(this.API4+"?borrar="+id)
+  }
+
+  ObtenerCuenta(id:any):Observable<any>{
+    return this.clienteHttp.get(this.API4+"?consultar="+id)
+  }
+
+  EditarCuenta(id:any, datosCuenta:any):Observable<any>{
+    return this.clienteHttp.post(this.API4+"?actualizar="+id,datosCuenta)
+  }
+
+  EditarEstadoDeCuenta(id:any, datosCuenta:any):Observable<any>{
+    return this.clienteHttp.post(this.API4+"?actualizarEstado="+id,datosCuenta)
   }
 
 

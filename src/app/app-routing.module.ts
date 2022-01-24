@@ -7,6 +7,10 @@ import { EditarProductoComponent } from './componentes/editar-producto/editar-pr
 import { AgregarVentaComponent } from './componentes/agregar-venta/agregar-venta.component';
 import { EditarVentaComponent } from './componentes/editar-venta/editar-venta.component';
 import { ListarVentaComponent } from './componentes/listar-venta/listar-venta.component';
+import { AgregarCuentaComponent } from './componentes/agregar-cuenta/agregar-cuenta.component';
+import { EditarCuentaComponent } from './componentes/editar-cuenta/editar-cuenta.component';
+import { ListarCuentaComponent } from './componentes/listar-cuenta/listar-cuenta.component';
+import { ListarPantallaComponent } from './componentes/listar-pantalla/listar-pantalla.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -20,7 +24,11 @@ const routes: Routes = [
   {path: 'editar-producto/:id', component: EditarProductoComponent},
   {path: 'agregar-venta', component: AgregarVentaComponent},
   {path: 'listar-venta', component: ListarVentaComponent},
-  {path: 'editar-venta/:id', component: EditarVentaComponent}
+  {path: 'editar-venta/:id', component: EditarVentaComponent},
+  {path: 'agregar-cuenta', component: AgregarCuentaComponent},
+  {path: 'listar-cuenta', component: ListarCuentaComponent},
+  {path: 'editar-cuenta/:id', component: EditarCuentaComponent},
+  {path: 'listar-pantalla', component: ListarPantallaComponent},
 ];
 
 @NgModule({

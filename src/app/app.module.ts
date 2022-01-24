@@ -16,6 +16,10 @@ import { ListarProductoComponent } from './componentes/listar-producto/listar-pr
 import { AgregarVentaComponent } from './componentes/agregar-venta/agregar-venta.component';
 import { EditarVentaComponent } from './componentes/editar-venta/editar-venta.component';
 import { ListarVentaComponent } from './componentes/listar-venta/listar-venta.component';
+import { AgregarCuentaComponent } from './componentes/agregar-cuenta/agregar-cuenta.component';
+import { EditarCuentaComponent } from './componentes/editar-cuenta/editar-cuenta.component';
+import { ListarCuentaComponent } from './componentes/listar-cuenta/listar-cuenta.component';
+import { ListarPantallaComponent } from './componentes/listar-pantalla/listar-pantalla.component';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { ListarVentaComponent } from './componentes/listar-venta/listar-venta.co
     ListarProductoComponent,
     AgregarVentaComponent,
     EditarVentaComponent,
-    ListarVentaComponent
+    ListarVentaComponent,
+    AgregarCuentaComponent,
+    EditarCuentaComponent,
+    ListarCuentaComponent,
+    ListarPantallaComponent
   ],
   imports: [
     BrowserModule,

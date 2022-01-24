@@ -18,10 +18,23 @@ export class Venta{
     id!: String;
     idProducto!: any;
     idCliente!: any;
+    idCuenta!: any;
     cantidad!: any;
     precioTotal!: String;
     metodoPago!: String;
     fecha!: Date;
     observacion!: String;
+    estado!: String;
+}
+
+
+export class Cuenta{
+    id!: String;
+    correo!: String;
+    contrasena!: String;
+    fechaInicio!: String;
+    fechaExpiracion!: String;
+    nombrePerfil!: String;
+    ping!: any;
     estado!: String;
 }

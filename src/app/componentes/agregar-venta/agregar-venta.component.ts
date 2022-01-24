@@ -13,12 +13,16 @@ export class AgregarVentaComponent implements OnInit {
   Productos:any;
   Clientes:any;
   formularioDeVentas:FormGroup;
+  formularioDeCuentas:FormGroup;
   precioProducto:any;
+  cuentasDeProducto:any = [];
+  idCuenta:any;
 
   constructor(public formulario: FormBuilder, private crudService: CrudService, private ruteador: Router) { 
     this.formularioDeVentas= this.formulario.group({
       idProducto: [''],
       idCliente: [''],
+      idCuenta: [''],
       cantidad: [''],
       precioTotal: [''],
       metodoPago:['Saldo'],
@@ -27,9 +31,14 @@ export class AgregarVentaComponent implements OnInit {
       estado: ['En trámite'],
 
     })
+
+    this.formularioDeCuentas = this.formulario.group({
+      estado: [''],
+     })
   }
 
   ngOnInit(): void {
+    console.log();
     this.crudService.ObtenerProductos().subscribe(respuesta=>{
       console.log(respuesta);
       this.Productos = respuesta;
@@ -46,6 +55,13 @@ export class AgregarVentaComponent implements OnInit {
   }
 
   precio(){
+    console.log("presionado");
+    this.crudService.ObtenerCuentasDeProducto(this.formularioDeVentas.value['idProducto']).subscribe(respuesta =>{
+      this.cuentasDeProducto = respuesta;
+      this.idCuenta = this.cuentasDeProducto[Math.floor(Math.random() * (0 + (this.cuentasDeProducto.length-1) + 1)) + 0]['idCuenta'];
+
+    })
+
     this.crudService.ObtenerProducto(this.formularioDeVentas.value['idProducto']).subscribe(respuesta=>{
       this.precioProducto = respuesta[0]['precio'];
     });
@@ -57,12 +73,21 @@ export class AgregarVentaComponent implements OnInit {
 
     this.formularioDeVentas.value['precioTotal'] = this.precioProducto;
     
+    this.formularioDeVentas.value['idCuenta'] = this.idCuenta;
+
+    this.formularioDeCuentas.value['estado'] = "Ocupado";
+
+    this.crudService.EditarEstadoDeCuenta(this.formularioDeVentas.value['idCuenta'], this.formularioDeCuentas.value).subscribe(() =>{
+    });
+
+  
     console.log("Me presionaste ");
     console.log(this.formularioDeVentas.value);
   
     
     this.crudService.AgregarVenta(this.formularioDeVentas.value).subscribe(respuesta =>{
       console.log(respuesta);
+      this.ruteador.navigateByUrl('listar-venta');
     });
    
   }

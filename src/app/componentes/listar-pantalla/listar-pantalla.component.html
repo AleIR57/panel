@@ -1,0 +1,37 @@
+<div class = "card">
+    <div class = "card-header">
+        Manejo de pantallas
+    </div>
+    <div class = "card-body">
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th>Inicio</th>
+                    <th>Expiración</th>
+                    <th>Nombre del perfil</th>
+                    <th>Ping</th>
+                    <th>Número de venta</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let venta of Ventas; let iControl = index">
+                        <td *ngFor = "let obj2 of Productos [iControl]">{{obj2.nombre}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.correo}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.contrasena}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaInicio}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaExpiracion}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.nombrePerfil}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.ping}}</td>
+                        <td>{{venta.idVenta}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.estado}}</td>
+                  
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

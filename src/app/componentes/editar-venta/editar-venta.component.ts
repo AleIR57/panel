@@ -15,6 +15,7 @@ export class EditarVentaComponent implements OnInit {
   numeroVenta:any;
   idProducto: any;
   idCliente: any;
+  idCuenta: any;
   nombreCliente: any;
   nombreProducto: any;
   detalleVenta: any;
@@ -34,6 +35,7 @@ export class EditarVentaComponent implements OnInit {
 
           idProducto:  respuesta[0]['idProducto'],
           idCliente:  respuesta[0]['idCliente'],
+          idCuenta: respuesta[0]['idCuenta'],
           cantidad:  respuesta[0]['cantidad'],
           precioTotal: respuesta[0]['precioTotal'],
           metodoPago: respuesta[0]['metodoPago'],
@@ -43,6 +45,7 @@ export class EditarVentaComponent implements OnInit {
         });
         this.idProducto = this.formularioDeVentas.value['idProducto'];
         this.idCliente = this.formularioDeVentas.value['idCliente'];
+        this.idCuenta = this.formularioDeVentas.value['idCuenta'];
         this.detalleVenta = this.formularioDeVentas.value['detalleVenta'];
         this.metodoPago = this.formularioDeVentas.value['metodoPago'];
         this.totalCompra = this.formularioDeVentas.value['totalCompra'];
@@ -67,6 +70,7 @@ export class EditarVentaComponent implements OnInit {
     this.formularioDeVentas = this.formulario.group({
       idProducto: [''],
       idCliente: [''],
+      idCuenta: [''],
       cantidad: [''],
       precioTotal: [''],
       metodoPago:[''],
@@ -86,9 +90,10 @@ export class EditarVentaComponent implements OnInit {
     console.log(this.formularioDeVentas.value);
     this.formularioDeVentas.value['idProducto'] = this.idProducto;
     this.formularioDeVentas.value['idCliente'] = this.idCliente;
+    this.formularioDeVentas.value['idCuenta'] = this.idCuenta;
     this.formularioDeVentas.value['cantidad'] = this.cantidad;
     this.formularioDeVentas.value['precioTotal'] = this.precioTotal;
-    this.formularioDeVentas.value['fecha'] = this.precioTotal;
+    this.formularioDeVentas.value['fecha'] = this.fecha;
     this.formularioDeVentas.value['estado'] = 'Tramitado';
     this.crudService.EditarVenta(this.elID, this.formularioDeVentas.value).subscribe(() =>{
       this.ruteador.navigateByUrl('/listar-venta')
