@@ -1,0 +1,163 @@
+.contenedor{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+  }
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+  .headerr{
+    position: fixed;
+    background: #22242A;
+    padding: 20px;
+    width: 100%;
+    height: 70px;
+  }
+
+  .left_areaa{
+    background: #22242A;
+  }
+  
+  .left_areaa h3{
+    color: #fff;
+    
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+    
+    
+  }
+  
+  .left_areaa span{
+    color: #19B3D3;
+  }
+
+
+  .logout_btn{
+    padding: 5px;
+    background: #19B3D3;
+    text-decoration: none;
+    float: right;
+    margin-top: -60px;
+    margin-right: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .logout_btn:hover{
+    background: #0B87A6;
+  }
+  
+  .sidebarr {
+    background: #2f323a;
+    margin-top: 70px;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+  }
+  
+  .sidebarr .profile_image{
+      margin-left: 30%;
+      margin-right: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .sidebarr h4{
+    padding-left: 82px;
+    margin-right: auto;
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .sidebarr a{
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .sidebarr a:hover{
+    background: #19B3D3;
+  }
+  
+  .sidebarr i{
+    padding-right: 10px;
+  }
+  
+  label #sidebar_btn{
+    z-index: 1;
+    color: #fff;
+    position: fixed;
+    cursor: pointer;
+    left: 300px;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.5s;
+    transition-property: color;
+  }
+  
+  label #sidebar_btn:hover{
+    color: #19B3D3;
+  }
+  
+  #check:checked ~ .sidebarr{
+    left: -190px;
+  }
+  
+  #check:checked ~ .sidebarr a span{
+    display: none;
+  }
+  
+  #check:checked ~ .sidebarr a{
+    font-size: 20px;
+    margin-left: 170px;
+    width: 80px;
+  }
+
+  #check:checked ~ .contenido{
+    margin-left: 200px;
+    transition: 0.5s;
+  }
+  
+
+  .contenidoWrap{
+    white-space: wrap;
+  }
+
+  .contenido{
+    padding-top: 7%;
+    margin-left: 255px;
+    white-space: nowrap;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+  }
+  
+  #check:checked ~ .contenido{
+    margin-left: 60px;
+  }
+  
+  #check{
+    display: none;
+  }

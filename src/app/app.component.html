@@ -1,19 +1,45 @@
-<nav class = "navbar navbar-expand navbar-light bg-light">
-  <div class = "nav navbar-nav">
-    <a class = "nav-item nav-link active">Sistema<span class = "visually-hidden">(current)</span></a>
-    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-cliente">Listar cliente</a>
-    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-producto">Listar Producto</a>
-    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-venta">Listar venta</a>
-    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-cuenta">Listar cuenta</a>
-    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-pantalla">Listar pantalla</a>
-    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-vendedor">Listar vendedor</a>
-    <a class = "nav-item nav-link" *ngIf="loginbtn"  routerLink = "login">Inicio de Sesión</a>
-    <li class="nav-item">
-      <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
-      </li>
-  </div>
-</nav>
 
-<div class = "container">
-  <router-outlet></router-outlet>
+
+<div class = "contenedor">
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <div class = "headerr">
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_areaa">
+        <h3>Panel <span>Digital</span></h3>
+      </div>
+      <div class="right_areaa">
+        <a href="#" class="logout_btn"><i class="fas fa-angle-left"></i> Salir</a>
+      </div>
+    </div>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebarr">
+      <div class = "center">
+        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/blue-and-green-digital-corporation-logo-design-template-def0356f36181905b3efb4e69c3f1c6f_screen.jpg?ts=1561473585" class="profile_image" alt="">
+        <h4>{{nombre}}</h4>
+        <h4>{{saldo}}</h4>
+      </div>
+      <a  *ngIf="logoutbtn" routerLink = "listar-cliente"><i class="fas fa-user-alt"></i><span>Clientes</span></a>
+      <a  *ngIf="logoutbtn" routerLink = "listar-producto"><i class="fas fa-tag"></i><span>Productos</span></a>
+      <a  *ngIf="logoutbtn" routerLink = "listar-venta"><i class="fas fa-check-circle"></i><span>Ventas</span></a>
+      <a  *ngIf="logoutbtn" routerLink = "listar-cuenta"><i class="fas fa-photo-video"></i><span>Cuentas</span></a>
+      <a  *ngIf="logoutbtn" routerLink = "listar-pantalla"><i class="fas fa-photo-video"></i><span></span><span>Pantallas</span></a>
+      <a  *ngIf="logoutbtn" routerLink = "listar-vendedor"><i class="fas fa-user-alt"></i><span>Colaboradores</span></a>
+      <a *ngIf="loginbtn"  routerLink = "login">Inicio de Sesión</a>
+    </div>
+    <!--sidebar end-->
+    <div class = "contenidoWrap">
+      <div class="contenido"><router-outlet></router-outlet></div>
+    </div>
+    
+
 </div>
+
+<!---
+<div class = "container">
+  
+</div>-->

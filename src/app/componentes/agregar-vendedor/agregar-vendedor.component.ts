@@ -34,7 +34,7 @@ export class AgregarVendedorComponent implements OnInit {
   enviarDatos():any{
     console.log("Me presionaste ");
     console.log(this.formularioDeVendedores.value);
-    this.crudService.ObtenerVendedorPorCorreo(this.formularioDeVendedores.value['idCorreo']).subscribe(respeusta =>{
+    this.crudService.ObtenerVendedorPorCorreo2(this.formularioDeVendedores.value['idCorreo']).subscribe(respeusta =>{
       this.existeVendedor = true;
     }, err =>{
       this.existeVendedor = false;

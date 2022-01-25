@@ -1,5 +1,6 @@
+import { CrudService } from 'src/app/servicio/crud.service';
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './servicio/auth.service';
 
 @Component({
@@ -7,12 +8,18 @@ import { AuthService } from './servicio/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  implements OnInit {
   title = 'panelAngular';
   loginbtn:boolean;
 logoutbtn:boolean;
+correoVendedorEncriptado: any = localStorage.getItem('token');
+_secretKey:any = "dsfdadasd";
+bytes:any;
+correoVendedor: any;
+nombre:any;
+saldo:any;
 
-constructor(private dataService: AuthService, private router: Router) {
+constructor(private dataService: AuthService, private router: Router, private crudService:CrudService) {
 dataService.getLoggedInName.subscribe(name => this.changeName(name));
 if(this.dataService.isLoggedIn())
 {
@@ -26,6 +33,22 @@ this.logoutbtn=false
 }
 
 }
+
+ngOnInit(): void {
+
+  console.log("Correo:" + this.correoVendedorEncriptado);
+  this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
+  if (this.bytes.toString()) {
+    this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
+    this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
+      this.nombre = respuesta[0]['nombre'];
+      this.saldo = respuesta[0]['saldo'];
+     
+    });
+  }
+
+}
+
 
 private changeName(name: boolean): void {
 this.logoutbtn = name;

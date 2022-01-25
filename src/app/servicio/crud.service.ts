@@ -125,6 +125,10 @@ export class CrudService {
     return this.clienteHttp.get(this.API5+"?consultar2="+correo)
   }
 
+  ObtenerVendedorPorCorreo2(correo:any):Observable<any>{
+    return this.clienteHttp.get(this.API5+"?consultar2="+correo)
+  }
+
   EditarVendedor(id:any, datosVendedor:any):Observable<any>{
     return this.clienteHttp.post(this.API5+"?actualizar="+id,datosVendedor)
   }
