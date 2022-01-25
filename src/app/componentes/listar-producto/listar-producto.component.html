@@ -1,10 +1,10 @@
-<div class = "card">
-    <div class = "card-header">
+<div class = "card bg-light">
+    <div class = "card-header bg-light">
         Clientes 
-        <a class = "btn btn-success" routerLink = "/agregar-producto/">Agregar producto</a>
+        <a class = "btn btn-success" routerLink = "/agregar-producto/"><i class="fas fa-plus"></i> Agregar producto</a>
     </div>
     <div class = "card-body">
-        <table class = "table">
+        <table class = "table text-center">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -16,7 +16,7 @@
                 <tr *ngFor = "let producto of Productos; let iControl = index">
                     <td>{{producto.nombre}}</td>
                     <td>{{producto.precio}}</td>
-                    <td> <a class = "btn btn-info" routerLink = "/editar-producto/{{producto.idProducto}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(producto.idProducto,iControl)">Borrar</a> </td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-producto/{{producto.idProducto}}"><i class="fas fa-edit"></i></a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(producto.idProducto,iControl)"><i class="fas fa-trash-alt"></i></a> </td>
                 </tr>
             </tbody>
         </table>

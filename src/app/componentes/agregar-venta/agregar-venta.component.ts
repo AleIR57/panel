@@ -28,6 +28,18 @@ export class AgregarVentaComponent implements OnInit {
   cuenta: boolean = false;
   selectProducto: boolean = false;
   selectCliente: boolean = false;
+  fecha: any;
+  nombreProducto: any;
+  cantidad:any;
+  fechaInicio:any;
+  fechaExpiracion:any;
+  nombreVendedor:any;
+  idProducto:any;
+  abrirModal:boolean = false;
+  correoCuenta: any;
+  contrasenaCuenta:any;
+  perfilCuenta: any;
+  pingCuenta:any;
 
 
   constructor(public formulario: FormBuilder, private crudService: CrudService, private ruteador: Router) { 
@@ -78,6 +90,7 @@ export class AgregarVentaComponent implements OnInit {
       this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
         this.idVendedor = respuesta[0]['idVendedor'];
         this.saldo = respuesta[0]['saldo'];
+        this.nombreVendedor = respuesta[0]['nombre'];
        
       });
     }
@@ -103,6 +116,7 @@ export class AgregarVentaComponent implements OnInit {
     this.crudService.ObtenerCuentasDeProducto(this.formularioDeVentas.value['idProducto']).subscribe(respuesta =>{
       this.cuentasDeProducto = respuesta;
       this.idCuenta = this.cuentasDeProducto[Math.floor(Math.random() * (0 + (this.cuentasDeProducto.length-1) + 1)) + 0]['idCuenta'];
+   
       this.cuenta = false;
     
     }, err =>{
@@ -111,6 +125,7 @@ export class AgregarVentaComponent implements OnInit {
     })
 
     this.crudService.ObtenerProducto(this.formularioDeVentas.value['idProducto']).subscribe(respuesta=>{
+      this.idProducto = respuesta[0]['idProducto'];
       this.precioProducto = respuesta[0]['precio'];
       this.selectProducto = false;
     });
@@ -148,10 +163,22 @@ export class AgregarVentaComponent implements OnInit {
 
     if(+this.saldo >= (+this.formularioDeVentas.value['cantidad'] * (+this.formularioDeVentas.value['precioTotal'])) && this.idCuenta != null && this.formularioDeVentas.value['idProducto'] > 0 && this.formularioDeVentas.value['idCliente'] > 0){
       this.valor = false;
+  
+      this.fechaInicio = this.formularioDeVentas.value['fecha'];
+      this.fechaExpiracion = new Date(new Date().setMonth(new Date().getMonth() + 1));
+      this.cantidad = this.formularioDeVentas.value['cantidad']; 
+     
       
       this.formularioDeVendedor.value['saldo'] = (+this.saldo - (+this.formularioDeVentas.value['cantidad'] * (+this.formularioDeVentas.value['precioTotal'])));
       
       this.formularioDeVentas.value['idCuenta'] = this.idCuenta;
+
+      this.crudService.ObtenerCuenta(this.formularioDeVentas.value['idCuenta']).subscribe(respuesta =>{
+        this.correoCuenta = respuesta[0]['correo'];
+        this.contrasenaCuenta = respuesta[0]['contrasena'];
+        this.perfilCuenta = respuesta[0]['nombrePerfil'];
+        this.pingCuenta = respuesta[0]['ping'];
+      })
   
       this.formularioDeCuentas.value['estado'] = "Ocupado";
 
@@ -170,8 +197,9 @@ export class AgregarVentaComponent implements OnInit {
      
       this.crudService.AgregarVenta(this.formularioDeVentas.value).subscribe(respuesta =>{
         console.log(respuesta);
-        this.ruteador.navigateByUrl('listar-venta');
+       
       });
+      this.abrirModal = true;
     }
     else{
       this.valor = true;
@@ -181,6 +209,11 @@ export class AgregarVentaComponent implements OnInit {
 
 
    
+  }
+
+  cerrarModal(){
+    this.abrirModal = false;
+    this.ruteador.navigateByUrl('listar-venta');
   }
 
 

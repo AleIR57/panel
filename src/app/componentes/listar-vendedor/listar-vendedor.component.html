@@ -1,10 +1,10 @@
-<div class = "card">
-    <div class = "card-header">
-        Vendedores
-        <a class = "btn btn-success" routerLink = "/agregar-vendedor/">Agregar vendedor</a>
+<div class = "card bg-light">
+    <div class = "card-header bg-light">
+        Colaboradores
+        <a class = "btn btn-success" routerLink = "/agregar-vendedor/"><i class="fas fa-plus"></i> Agregar colaborador</a>
     </div>
     <div class = "card-body">
-        <table class = "table">
+        <table class = "table text-center">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -27,7 +27,7 @@
                     <td>{{vendedor.empresa}}</td>
                     <td>{{vendedor.saldo}}</td>
                     <td>{{vendedor.creditos}}</td>
-                    <td> <a class = "btn btn-info" routerLink = "/editar-vendedor/{{vendedor.idVendedor}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(vendedor.id,iControl)">Borrar</a> </td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-vendedor/{{vendedor.idVendedor}}"><i class="fas fa-edit"></i></a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(vendedor.id,iControl)"><i class="fas fa-trash-alt"></i></a> </td>
                 </tr>
             </tbody>
         </table>

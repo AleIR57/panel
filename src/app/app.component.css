@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
   }
 
 .center{
@@ -15,10 +16,12 @@
     padding: 20px;
     width: 100%;
     height: 70px;
+    z-index: 3;
   }
 
   .left_areaa{
     background: #22242A;
+    margin-top: -20px;
   }
   
   .left_areaa h3{
@@ -27,12 +30,13 @@
     text-transform: uppercase;
     font-size: 22px;
     font-weight: 900;
-    
+   
     
   }
   
   .left_areaa span{
     color: #19B3D3;
+    
   }
 
 
@@ -41,7 +45,7 @@
     background: #19B3D3;
     text-decoration: none;
     float: right;
-    margin-top: -60px;
+    margin-top: -35px;
     margin-right: 40px;
     border-radius: 2px;
     font-size: 15px;
@@ -56,6 +60,7 @@
   }
   
   .sidebarr {
+    z-index: 3;
     background: #2f323a;
     margin-top: 70px;
     padding-top: 30px;
@@ -77,7 +82,15 @@
   }
   
   .sidebarr h4{
-    padding-left: 82px;
+    padding-left: 70px;
+    margin-right: auto;
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .sidebarr h5{
+    padding-left: 90px;
     margin-right: auto;
     color: #ccc;
     margin-top: 0;
@@ -111,6 +124,7 @@
     cursor: pointer;
     left: 300px;
     font-size: 20px;
+    
     margin: 5px 0;
     transition: 0.5s;
     transition-property: color;
@@ -122,6 +136,7 @@
   
   #check:checked ~ .sidebarr{
     left: -190px;
+    
   }
   
   #check:checked ~ .sidebarr a span{
@@ -132,32 +147,58 @@
     font-size: 20px;
     margin-left: 170px;
     width: 80px;
+    margin-top: -20px;
   }
 
-  #check:checked ~ .contenido{
-    margin-left: 200px;
+  #check:checked ~ .contenidoWrap{
     transition: 0.5s;
   }
   
-
   .contenidoWrap{
-    white-space: wrap;
+    background: rgb(221, 221, 221);
+    transition: 0.5s;
+    height: 100vh;
+    display: block;
+    white-space: nowrap;
+    
   }
+
 
   .contenido{
     padding-top: 7%;
-    margin-left: 255px;
+    margin-left: 260px;
+    margin-right: 10px;
+    display:block;
     white-space: nowrap;
     background-position: center;
     background-size: cover;
-    height: 100vh;
     transition: 0.5s;
+    overflow-x: auto;
+    overflow-y: auto;
   }
   
-  #check:checked ~ .contenido{
-    margin-left: 60px;
+  #check:checked ~ .contenidoWrap{
+    margin-left: -190px;
   }
   
   #check{
     display: none;
+  }
+
+  .botonDesplegar{
+    margin-top: -20px;
+  }
+
+ 
+
+  @media screen and (max-width: 1200px){
+    .contenido{
+      padding-top: 15%;
+    }
+  }
+
+  @media screen and (max-width: 800px){
+    .contenido{
+      padding-top: 20%;
+    }
   }

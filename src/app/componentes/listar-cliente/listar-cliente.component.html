@@ -1,10 +1,10 @@
-<div class = "card">
-    <div class = "card-header">
+<div class = "card bg-light">
+    <div class = "card-header bg-light bg-light">
         Clientes 
-        <a class = "btn btn-success" routerLink = "/agregar-cliente/">Agregar cliente</a>
+        <a class = "btn btn-success" routerLink = "/agregar-cliente/"><i class="fas fa-plus"></i> Agregar cliente</a>
     </div>
     <div class = "card-body">
-        <table class = "table">
+        <table class = "table text-center">
             <thead>
                 <tr>
                     <th>Nombres</th>
@@ -24,7 +24,7 @@
                     <td>{{cliente.telefono}}</td>
                     <td>{{cliente.correo}}</td>
                     <td *ngFor = "let obj of Vendedores [iControl]">{{obj.nombre}}</td>
-                    <td> <a class = "btn btn-info" routerLink = "/editar-cliente/{{cliente.idCliente}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cliente.idCliente,iControl)">Borrar</a> </td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-cliente/{{cliente.idCliente}}"><i class="fas fa-edit"></i></a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cliente.idCliente,iControl)"><i class="fas fa-trash-alt"></i></a> </td>
                 </tr>
             </tbody>
         </table>

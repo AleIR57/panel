@@ -1,27 +1,27 @@
 
 
-<div class = "contenedor">
+<div class = "contenedor" >
 
-    <input type="checkbox" id="check">
+    <input type="checkbox" id="check" *ngIf = "logoutbtn">
     <!--header area start-->
-    <div class = "headerr">
-      <label for="check">
+    <div class = "headerr" *ngIf = "logoutbtn">
+      <label for="check" class = "botonDesplegar">
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_areaa">
         <h3>Panel <span>Digital</span></h3>
       </div>
       <div class="right_areaa">
-        <a href="#" class="logout_btn"><i class="fas fa-angle-left"></i> Salir</a>
+        <a href="#" class="logout_btn" (click) = "logout()"><i class="fas fa-angle-left"></i> Salir</a>
       </div>
     </div>
     <!--header area end-->
     <!--sidebar start-->
-    <div class="sidebarr">
+    <div class="sidebarr" *ngIf = "logoutbtn">
       <div class = "center">
         <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/blue-and-green-digital-corporation-logo-design-template-def0356f36181905b3efb4e69c3f1c6f_screen.jpg?ts=1561473585" class="profile_image" alt="">
         <h4>{{nombre}}</h4>
-        <h4>{{saldo}}</h4>
+        <h5>${{saldo}}</h5>
       </div>
       <a  *ngIf="logoutbtn" routerLink = "listar-cliente"><i class="fas fa-user-alt"></i><span>Clientes</span></a>
       <a  *ngIf="logoutbtn" routerLink = "listar-producto"><i class="fas fa-tag"></i><span>Productos</span></a>
@@ -32,12 +32,15 @@
       <a *ngIf="loginbtn"  routerLink = "login">Inicio de Sesión</a>
     </div>
     <!--sidebar end-->
-    <div class = "contenidoWrap">
+    <div class = "contenidoWrap" *ngIf = "logoutbtn">
       <div class="contenido"><router-outlet></router-outlet></div>
     </div>
+      
     
 
 </div>
+
+<div *ngIf = "loginbtn"><router-outlet></router-outlet></div>
 
 <!---
 <div class = "container">

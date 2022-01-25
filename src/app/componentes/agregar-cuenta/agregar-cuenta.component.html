@@ -1,5 +1,5 @@
-<div class = "card">
-    <div class = "card-header">
+<div class = "card bg-light">
+    <div class = "card-header bg-light">
         Agregar cuenta
     </div>
     <div class = "card-body card1">
@@ -42,7 +42,12 @@
         <div class = "btn-group" role= "group" aria-label = "">
             <button type= "button" *ngIf = "!selectProducto" type = "submit" class= "btn btn-success">Agregar</button>
             <button type= "button" *ngIf = "selectProducto" class= "btn btn-success" disabled>Agregar</button>
-            <button type= "button" routerLink = "/listar-cliente" class= "btn btn-primary">Cancelar</button>
+            
+        </div>
+
+        <div class = "btn-group" role= "group" aria-label = "">
+
+            <button type= "button" routerLink = "/listar-cuenta" class= "btn btn-primary boton2">Cancelar</button>
         </div>
 
        </form>

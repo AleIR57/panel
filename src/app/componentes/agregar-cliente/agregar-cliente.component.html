@@ -1,6 +1,6 @@
-<div class = "card">
-    <div class = "card-header">
-        Agregar usuario
+<div class = "card bg-light">
+    <div class = "card-header bg-light">
+        Agregar cliente
     </div>
     <div class = "card-body">
        <form ngNativeValidate [formGroup] = "formularioDeClientes" (ngSubmit) = "enviarDatos()">
@@ -36,8 +36,15 @@
 
         <div class = "btn-group" role= "group" aria-label = "">
             <button type= "button" type = "submit" class= "btn btn-success">Agregar</button>
-            <button type= "button" routerLink = "/listar-cliente" class= "btn btn-primary">Cancelar</button>
+            
         </div>
+
+        <div class = "btn-group" role= "group" aria-label = "">
+
+            <button type= "button" routerLink = "/listar-cliente" class= "btn btn-primary boton2">Cancelar</button>
+        </div>
+
+        
 
        </form>
     </div>

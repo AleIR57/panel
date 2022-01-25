@@ -1,10 +1,11 @@
-<div class = "card">
-    <div class = "card-header">
+
+<div class = "card card1 bg-light">
+    <div class = "card-header bg-light">
         Cuentas
-        <a class = "btn btn-success" routerLink = "/agregar-cuenta/">Agregar cuenta</a>
+        <a class = "btn btn-success" routerLink = "/agregar-cuenta/"><i class="fas fa-plus"></i> Agregar cuenta</a>
     </div>
     <div class = "card-body">
-        <table class = "table">
+        <table class = "table text-center">
             <thead>
                 <tr>
                     <th>Producto</th>
@@ -29,7 +30,7 @@
                     <td>{{cuenta.nombrePerfil}}</td>
                     <td>{{cuenta.ping}}</td>
                     <td>{{cuenta.estado}}</td>
-                    <td> <a class = "btn btn-info" routerLink = "/editar-cuenta/{{cuenta.idCuenta}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cuenta.idCuenta,iControl)">Borrar</a> </td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-cuenta/{{cuenta.idCuenta}}"><i class="fas fa-edit"></i></a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cuenta.idCuenta,iControl)"><i class="fas fa-trash-alt"></i></a> </td>
                 </tr>
             </tbody>
         </table>
