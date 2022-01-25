@@ -12,11 +12,29 @@ export class ListarVentaComponent implements OnInit {
   Clientes: any = [];
   Productos: any = [];
   EnTramite = false;
+  correoVendedorEncriptado: any = localStorage.getItem('token');
+  _secretKey:any = "dsfdadasd";
+  bytes:any;
+  correoVendedor: any;
+  saldo:any;
+  creditos:any;
 
 
   constructor(private crudService:CrudService) { }
 
   ngOnInit(): void {
+
+    console.log("Correo:" + this.correoVendedorEncriptado);
+    this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
+    if (this.bytes.toString()) {
+      this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
+      this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
+        this.saldo = respuesta[0]['saldo'];
+        this.creditos = respuesta[0]['creditos'];
+       
+      });
+    }
+
     this.crudService.ObtenerVentas().subscribe(respuesta=>{
       console.log(respuesta);
       this.Ventas = respuesta;

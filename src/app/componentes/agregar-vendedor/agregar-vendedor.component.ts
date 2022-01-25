@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AgregarVendedorComponent implements OnInit {
 
   formularioDeVendedores:FormGroup;
+  existeVendedor: boolean = true;
 
   constructor(public formulario: FormBuilder, private crudService: CrudService, private ruteador: Router) {
     this.formularioDeVendedores= this.formulario.group({
@@ -33,9 +34,20 @@ export class AgregarVendedorComponent implements OnInit {
   enviarDatos():any{
     console.log("Me presionaste ");
     console.log(this.formularioDeVendedores.value);
-    this.crudService.AgregarVendedor(this.formularioDeVendedores.value).subscribe(respuesta =>{
-      this.ruteador.navigateByUrl('/listar-vendedor')
-    });
+    this.crudService.ObtenerVendedorPorCorreo(this.formularioDeVendedores.value['idCorreo']).subscribe(respeusta =>{
+      this.existeVendedor = true;
+    }, err =>{
+      this.existeVendedor = false;
+    })
+    if(this.existeVendedor == false){
+      this.crudService.AgregarVendedor(this.formularioDeVendedores.value).subscribe(respuesta =>{
+        this.ruteador.navigateByUrl('/listar-vendedor')
+      });
+    }
+    else{
+      console.log("Ya existe un usuario");
+    }
+   
    
   }
 }

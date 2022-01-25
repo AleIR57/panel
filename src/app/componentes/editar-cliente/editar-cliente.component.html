@@ -7,31 +7,37 @@
            <div class = "mb-3">
                <label for = "" class= "form-label">Nombres:</label>
                <input required type= "text" class= "form-control" formControlName = "nombres" name = "" id = "" aria-describedby="helpId" placeholder= "Nombres del cliente">
+               <label for = "" class= "text-primary">Obligatorio</label>
            </div>
 
            <div class = "mb-3">
             <label for = "" class= "form-label">Apellidos:</label>
-            <input required type= "text" class= "form-control" formControlName = "apellidos" name = "" id = "" aria-describedby="helpId" placeholder= "Apellidos del cliente">   
+            <input required type= "text" class= "form-control" formControlName = "apellidos" name = "" id = "" aria-describedby="helpId" placeholder= "Apellidos del cliente">
+            <label for = "" class= "text-primary">Obligatorio</label>     
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Whatsapp:</label>
-            <input required type= "text" class= "form-control" formControlName = "whatsapp" name = "" id = "" aria-describedby="helpId" placeholder= "Whatsapp del cliente">   
+            <input required type= "number" class= "form-control" formControlName = "whatsapp" name = "" id = "" aria-describedby="helpId" placeholder= "Whatsapp del cliente">  
+            <label for = "" class= "text-primary">Obligatorio</label>  
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Telefono:</label>
-            <input required type= "text" class= "form-control" formControlName = "telefono" name = "" id = "" aria-describedby="helpId" placeholder= "Fijo o Movil">   
+            <input  type= "number" class= "form-control" formControlName = "telefono" name = "" id = "" aria-describedby="helpId" placeholder= "Fijo o Movil">   
+            <label for = "" class= "text-primary">Opcional</label> 
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Correo electrónico:</label>
-            <input required type= "text" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "tuemail@ejemplo.com">   
+            <input type= "email" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "tuemail@ejemplo.com">
+            <label for = "" class= "text-primary">Opcional</label>   
         </div>
 
         <div class = "btn-group" role= "group" aria-label = "">
             <button type= "submit" class= "btn btn-success">Modificar</button>
             <button type= "button" routerLink = "/listar-cliente" class= "btn btn-primary">Cancelar</button>
+
         </div>
 
        </form>

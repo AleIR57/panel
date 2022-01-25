@@ -11,25 +11,41 @@ import { Router} from '@angular/router'
 export class AgregarClienteComponent implements OnInit {
 
   formularioDeClientes:FormGroup;
+  correoVendedorEncriptado: any = localStorage.getItem('token');
+  _secretKey:any = "dsfdadasd";
+  bytes:any;
+  correoVendedor: any;
+  idVendedor:any;
 
   constructor(public formulario: FormBuilder, private crudService: CrudService, private ruteador: Router) {
+   
     this.formularioDeClientes= this.formulario.group({
       nombres: [''],
       apellidos: [''],
       whatsapp: [''],
-      telefono: [''],
-      correo:[''],
-      idVendedor:[1],
+      telefono: [' '],
+      correo:[' '],
+      idVendedor:[this.idVendedor],
 
     })
    }
 
   ngOnInit(): void {
+    console.log("Correo:" + this.correoVendedorEncriptado);
+    this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
+    if (this.bytes.toString()) {
+      this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
+      this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
+        this.idVendedor = respuesta[0]['idVendedor'];
+       
+      });
+    }
   }
 
   enviarDatos():any{
     console.log("Me presionaste ");
     console.log(this.formularioDeClientes.value);
+    this.formularioDeClientes.value['idVendedor'] = this.idVendedor;
     this.crudService.AgregarCliente(this.formularioDeClientes.value).subscribe(respuesta =>{
       this.ruteador.navigateByUrl('/listar-cliente')
     });

@@ -29,7 +29,7 @@
                     <td>{{cuenta.nombrePerfil}}</td>
                     <td>{{cuenta.ping}}</td>
                     <td>{{cuenta.estado}}</td>
-                    <td> <a class = "btn btn-info" routerLink = "/editar-cuenta/{{cuenta.idCuenta}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cuenta.id,iControl)">Borrar</a> </td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-cuenta/{{cuenta.idCuenta}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cuenta.idCuenta,iControl)">Borrar</a> </td>
                 </tr>
             </tbody>
         </table>

@@ -19,20 +19,22 @@
 
         <div class = "mb-3">
           <label for = "" class= "form-label">Observación:</label>
-          <input required type= "text" class= "form-control" formControlName = "observacion" name = "" id = "" aria-describedby="helpId" placeholder = "Observación">   
+          <input required type= "text" class= "form-control" formControlName = "observacion" name = "" id = "" aria-describedby="helpId" placeholder = "Observación" > 
+          <label for = "" class= "text-primary">Obligatorio</label>  
       </div>
 
         <div class="mb-3">
           <label for = "" class= "form-label">Método de pago:</label>
-          <select class="form-select" aria-label="Default select example" formControlName = "metodoPago" >
+          <select class="form-select" aria-label="Default select example" formControlName = "metodoPago" required>
             <option value = "0" selected="selected">Selecciona un método de pago</option>
             <option value = "Saldo" >Saldo</option>
             <option value = "Credito" >Crédito</option>
           </select>
+          <label for = "" class= "text-primary">Obligatorio</label>
         </div>
 
         <div class = "mb-3">
-          <label for = "" class= "form-label">Total de la compra: {{precioTotal}}</label>
+          <label for = "" class= "form-label">Total de la compra: ${{precioTotal}}</label>
         </div>
 
   

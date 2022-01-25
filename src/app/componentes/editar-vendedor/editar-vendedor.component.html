@@ -6,42 +6,49 @@
        <form ngNativeValidate [formGroup] = "formularioDeVendedores" (ngSubmit) = "enviarDatos()">
            <div class = "mb-3">
                <label for = "" class= "form-label">Nombre:</label>
-               <input required type= "text" class= "form-control" formControlName = "nombre" name = "" id = "" aria-describedby="helpId" placeholder= "Nombres del cliente">
+               <input required type= "text" class= "form-control" formControlName = "nombre" name = "" id = "" aria-describedby="helpId" placeholder= "Nombre del vendedor">
+               <label for = "" class= "text-primary">Obligatorio</label>
            </div>
 
            <div class = "mb-3">
             <label for = "" class= "form-label">Nombre de usuario:</label>
-            <input required type= "text" class= "form-control" formControlName = "nombreUsuario" name = "" id = "" aria-describedby="helpId" placeholder= "Apellidos del cliente">   
+            <input required type= "text" class= "form-control" formControlName = "nombreUsuario" name = "" id = "" aria-describedby="helpId" placeholder= "Nombre de usuario del vendedor">   
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Correo:</label>
-            <input required type= "text" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "Whatsapp del cliente">   
+            <input required type= "email" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "Correo del vendedor" >   
+            <label for = "" class= "text-primary">Obligatorio</label>
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Contraseña</label>
-            <input required type= "text" class= "form-control" formControlName = "contrasena" name = "" id = "" aria-describedby="helpId" placeholder= "Fijo o Movil">   
+            <input required type= "password" class= "form-control" formControlName = "contrasena" name = "" id = "" aria-describedby="helpId" placeholder= "Contraseña del vendedor">
+            <label for = "" class= "text-primary">Obligatorio</label>   
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Número Telefónico</label>
-            <input required type= "text" class= "form-control" formControlName = "numeroTelefono" name = "" id = "" aria-describedby="helpId" placeholder= "tuemail@ejemplo.com">   
+            <input required type= "number" class= "form-control" formControlName = "numeroTelefono" name = "" id = "" aria-describedby="helpId" placeholder= "Número telefónico">   
+            <label for = "" class= "text-primary">Obligatorio</label>
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Empresa</label>
-            <input required type= "text" class= "form-control" formControlName = "empresa" name = "" id = "" aria-describedby="helpId" placeholder= "tuemail@ejemplo.com">   
+            <input required type= "text" class= "form-control" formControlName = "empresa" name = "" id = "" aria-describedby="helpId" placeholder= "Empresa">   
+            <label for = "" class= "text-primary">Obligatorio</label>
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Saldo</label>
-            <input required type= "text" class= "form-control" formControlName = "saldo" name = "" id = "" aria-describedby="helpId" placeholder= "tuemail@ejemplo.com">   
+            <input required type= "text" class= "form-control" formControlName = "saldo" name = "" id = "" aria-describedby="helpId" placeholder= "Saldo del vendedor">
+            <label for = "" class= "text-primary">Obligatorio</label>   
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Créditos</label>
-            <input required type= "text" class= "form-control" formControlName = "creditos" name = "" id = "" aria-describedby="helpId" placeholder= "tuemail@ejemplo.com">   
+            <input required type= "text" class= "form-control" formControlName = "creditos" name = "" id = "" aria-describedby="helpId" placeholder= "Créditos del vendedor">
+            <label for = "" class= "text-primary">Obligatorio</label>   
         </div>
 
         <div class = "btn-group" role= "group" aria-label = "">

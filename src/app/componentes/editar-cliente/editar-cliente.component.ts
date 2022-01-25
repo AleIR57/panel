@@ -31,8 +31,8 @@ export class EditarClienteComponent implements OnInit {
       nombres: [''],
       apellidos: [''],
       whatsapp: [''],
-      telefono: [''],
-      correo:[''],
+      telefono: [' '],
+      correo:[' '],
       idVendedor:[1],
 
     })

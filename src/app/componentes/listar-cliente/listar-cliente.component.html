@@ -23,8 +23,8 @@
                     <td>{{cliente.whatsapp}}</td>
                     <td>{{cliente.telefono}}</td>
                     <td>{{cliente.correo}}</td>
-                    <td>{{cliente.idVendedor}}</td>
-                    <td> <a class = "btn btn-info" routerLink = "/editar-cliente/{{cliente.idCliente}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cliente.id,iControl)">Borrar</a> </td>
+                    <td *ngFor = "let obj of Vendedores [iControl]">{{obj.nombre}}</td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-cliente/{{cliente.idCliente}}">Editar</a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(cliente.idCliente,iControl)">Borrar</a> </td>
                 </tr>
             </tbody>
         </table>

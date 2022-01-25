@@ -6,22 +6,26 @@
        <form ngNativeValidate [formGroup] = "formularioDeCuentas" (ngSubmit) = "enviarDatos()">
            <div class = "mb-3">
                <label for = "" class= "form-label">Correo:</label>
-               <input required type= "text" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "Correo de la cuenta">
+               <input required type= "email" class= "form-control" formControlName = "correo" name = "" id = "" aria-describedby="helpId" placeholder= "Correo de la cuenta">
+               <label for = "" class= "text-primary">Obligatorio</label>
            </div>
 
            <div class = "mb-3">
             <label for = "" class= "form-label">Contraseña:</label>
-            <input required type= "text" class= "form-control" formControlName = "contrasena" name = "" id = "" aria-describedby="helpId" placeholder= "Contraseña de la cuenta">   
+            <input required type= "password" class= "form-control" formControlName = "contrasena" name = "" id = "" aria-describedby="helpId" placeholder= "Contraseña de la cuenta">  
+            <label for = "" class= "text-primary">Obligatorio</label> 
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Nombre del perfil: </label>
             <input required type= "text" class= "form-control" formControlName = "nombrePerfil" name = "" id = "" aria-describedby="helpId" placeholder= "Nombre del perfil de la cuenta">   
+            <label for = "" class= "text-primary">Obligatorio</label>
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Ping</label>
-            <input required type= "text" class= "form-control" formControlName = "ping" name = "" id = "" aria-describedby="helpId" placeholder= "Ping de la cuenta">   
+            <input required type= "number" class= "form-control" formControlName = "ping" name = "" id = "" aria-describedby="helpId" placeholder= "Ping de la cuenta">   
+            <label for = "" class= "text-primary">Obligatorio</label>
         </div>
 
 

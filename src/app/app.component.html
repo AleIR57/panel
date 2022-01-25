@@ -1,13 +1,13 @@
 <nav class = "navbar navbar-expand navbar-light bg-light">
   <div class = "nav navbar-nav">
     <a class = "nav-item nav-link active">Sistema<span class = "visually-hidden">(current)</span></a>
-    <a class = "nav-item nav-link" routerLink = "listar-cliente">Listar cliente</a>
-    <a class = "nav-item nav-link" routerLink = "listar-producto">Listar Producto</a>
-    <a class = "nav-item nav-link" routerLink = "listar-venta">Listar venta</a>
-    <a class = "nav-item nav-link" routerLink = "listar-cuenta">Listar cuenta</a>
-    <a class = "nav-item nav-link" routerLink = "listar-pantalla">Listar pantalla</a>
-    <a class = "nav-item nav-link" routerLink = "listar-vendedor">Listar vendedor</a>
-    <a class = "nav-item nav-link" routerLink = "login">Inicio de Sesión</a>
+    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-cliente">Listar cliente</a>
+    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-producto">Listar Producto</a>
+    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-venta">Listar venta</a>
+    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-cuenta">Listar cuenta</a>
+    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-pantalla">Listar pantalla</a>
+    <a class = "nav-item nav-link" *ngIf="logoutbtn" routerLink = "listar-vendedor">Listar vendedor</a>
+    <a class = "nav-item nav-link" *ngIf="loginbtn"  routerLink = "login">Inicio de Sesión</a>
     <li class="nav-item">
       <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">logout</button>
       </li>

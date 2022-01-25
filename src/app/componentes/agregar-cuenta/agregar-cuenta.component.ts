@@ -12,10 +12,11 @@ export class AgregarCuentaComponent implements OnInit {
 
   formularioDeCuentas:FormGroup;
   Productos:any;
+  selectProducto: boolean = true;
 
   constructor(public formulario: FormBuilder, private crudService: CrudService, private ruteador: Router) {
     this.formularioDeCuentas= this.formulario.group({
-      idProducto: [''],
+      idProducto: [0],
       correo: [''],
       contrasena: [''],
       fechaInicio: new Date(),
@@ -34,13 +35,26 @@ export class AgregarCuentaComponent implements OnInit {
     });
   }
 
+  seleccionarProducto(){
+    if(+this.formularioDeCuentas.value['idProducto'] == 0){
+      console.log("Cliente true");
+      this.selectProducto = true;
+    }
+    else if(+this.formularioDeCuentas.value['idProducto'] > 0){
+      console.log("Cliente false");
+      this.selectProducto = false;
+    }
+  }
+
   enviarDatos():any{
-    console.log("Me presionaste ");
-    console.log(this.formularioDeCuentas.value);
-    this.crudService.AgregarCuenta(this.formularioDeCuentas.value).subscribe(respuesta =>{
-      this.ruteador.navigateByUrl('/listar-cuenta')
-    });
-   
+      console.log("Me presionaste ");
+      console.log(this.formularioDeCuentas.value);
+      this.crudService.AgregarCuenta(this.formularioDeCuentas.value).subscribe(respuesta =>{
+        this.ruteador.navigateByUrl('/listar-cuenta')
+      });
+    
+  
+  
   }
 
 

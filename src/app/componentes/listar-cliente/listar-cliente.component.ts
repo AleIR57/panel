@@ -10,6 +10,7 @@ import { CrudService } from 'src/app/servicio/crud.service';
 export class ListarClienteComponent implements OnInit {
 
   Clientes:any;
+  Vendedores:any = [];
 
 
   constructor(private crudService:CrudService) { }
@@ -18,6 +19,15 @@ export class ListarClienteComponent implements OnInit {
     this.crudService.ObtenerClientes().subscribe(respuesta=>{
       console.log(respuesta);
       this.Clientes = respuesta;
+
+
+      for(let i = 0; i < Object.keys(this.Clientes).length; i++){
+        this.crudService.ObtenerVendedor(this.Clientes[i]['idVendedor']).subscribe(respuesta=>{
+          
+          this.Vendedores.push(respuesta)
+          console.log(this.Vendedores);
+        });
+      }
     });
   }
 

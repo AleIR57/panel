@@ -13,6 +13,7 @@ export class EditarVendedorComponent implements OnInit {
   formularioDeVendedores:FormGroup;
   elID:any;
   idRol:any;
+  existeVendedor: boolean = true;
   constructor(private activeRoute:ActivatedRoute, private crudService: CrudService, public formulario: FormBuilder, private ruteador:Router) {
     this.elID =  this.activeRoute.snapshot.paramMap.get('id');
     console.log(this.elID);
@@ -53,10 +54,30 @@ export class EditarVendedorComponent implements OnInit {
   enviarDatos():any{
     console.log(this.elID);
     console.log(this.formularioDeVendedores.value);
+    
+    this.crudService.ObtenerVendedorPorCorreo(this.formularioDeVendedores.value['idCorreo']).subscribe(respeusta =>{
+      this.existeVendedor = true;
+    }, err =>{
+      this.existeVendedor = false;
+    })
+    if(this.existeVendedor == false){
+      this.crudService.AgregarVendedor(this.formularioDeVendedores.value).subscribe(respuesta =>{
+        this.ruteador.navigateByUrl('/listar-vendedor')
+      });
+    }
+    else{
+      console.log("Ya existe un usuario");
+    }
+   
+    if(this.existeVendedor == false){
     this.formularioDeVendedores.value['idRol'] = this.idRol;
     this.crudService.EditarVendedor(this.elID, this.formularioDeVendedores.value).subscribe(() =>{
       this.ruteador.navigateByUrl('/listar-vendedor')
     });
+  }
+  else{
+    console.log("Ya existe un usuario");
+  }
   }
 
 }

@@ -8,37 +8,46 @@
 
            <div class="mb-3">
             <label for = "" class= "form-label">Producto:</label>
-            <select class="form-select" aria-label="Default select example" (change) = "precio()" formControlName = "idProducto" >
+            <select class="form-select" aria-label="Default select example" (change) = "precio()" formControlName = "idProducto" required>
               <option value = "0" selected="selected">Selecciona un producto</option>
-              <option *ngFor="let producto of Productos; let iControl=index" value="{{producto.idProducto}}">{{producto.nombre}}</option>
+              <option *ngFor="let producto of Productos; let iControl=index"  value="{{producto.idProducto}}">{{producto.nombre}} ${{producto.precio}}</option>
             </select>
+            <label for = "" *ngIf = "cuenta" class= "text-primary">No hay cuentas disponibles para este producto</label> 
+            <label for = "" class= "text-primary">Obligatorio</label>
           </div>
 
           
           <div class="mb-3">
             <label for = "" class= "form-label">Nombre del cliente: </label>
-            <select class="form-select" aria-label="Default select example" formControlName = "idCliente" >
+            <select class="form-select" aria-label="Default select example" (change) = "clienteSeleccionado()"  formControlName = "idCliente" required>
               <option value = "0" selected="selected">Selecciona un cliente</option>
               <option *ngFor="let cliente of Clientes; let iControl=index" value="{{cliente.idCliente}}">{{cliente.nombres}} {{cliente.apellidos}}</option>
             </select>
+            <label for = "" class= "text-primary">Obligatorio</label>
           </div>
 
         
 
         <div class = "mb-3">
-            <label for = "" class= "form-label">Cantidad:</label>
-            <input required type= "number" class= "form-control" formControlName = "cantidad" name = "" id = "" aria-describedby="helpId" placeholder = "Digite la cantidad">   
+            <label for = "" class= "form-label" >Cantidad:</label>
+            <input required type= "number" class= "form-control" formControlName = "cantidad" name = "" id = "" aria-describedby="helpId" placeholder = "Digite la cantidad">  
+            <label for = "" class= "text-primary">Obligatorio</label> 
         </div>
 
         <div class = "mb-3">
             <label for = "" class= "form-label">Observación:</label>
             <input required type= "text" class= "form-control" formControlName = "observacion" name = "" id = "" aria-describedby="helpId" placeholder = "Observación">   
+            <label for = "" class= "text-primary">Obligatorio</label>
         </div>
 
         <div class = "btn-group" role= "group" aria-label = "">
-            <button type= "button" type = "submit" class= "btn btn-success">Agregar</button>
+          <label for = "" *ngIf = "valor" class= "text-primary">Saldo menor a lo que se desea comprar</label> 
+            <button type= "button" *ngIf = "!cuenta && !valor && !selectProducto && !selectCliente" type = "submit" class= "btn btn-success">Agregar</button>
+            <button type= "button" *ngIf = "cuenta || valor || selectProducto || selectCliente"  class= "btn btn-success" disabled>Agregar</button>
             <button type= "button" routerLink = "/listar-venta" class= "btn btn-primary">Cancelar</button>
         </div>
+
+
 
 
        </form>
