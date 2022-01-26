@@ -6,7 +6,7 @@
     <!--header area start-->
     <div class = "headerr" *ngIf = "logoutbtn">
       <label for="check" class = "botonDesplegar">
-        <i class="fas fa-bars" id="sidebar_btn"></i>
+        <i class="fas fa-bars" id="sidebarr_btn"></i>
       </label>
       <div class="left_areaa">
         <h3>Panel <span>Digital</span></h3>
@@ -29,6 +29,7 @@
       <a  *ngIf="logoutbtn" routerLink = "listar-cuenta"><i class="fas fa-photo-video"></i><span>Cuentas</span></a>
       <a  *ngIf="logoutbtn" routerLink = "listar-pantalla"><i class="fas fa-photo-video"></i><span></span><span>Pantallas</span></a>
       <a  *ngIf="logoutbtn" routerLink = "listar-vendedor"><i class="fas fa-user-alt"></i><span>Colaboradores</span></a>
+      <a href="#" class="logout_btn2" (click) = "logout()"><i class="fas fa-angle-left" class = "logout_btn2icono"></i></a>
       <a *ngIf="loginbtn"  routerLink = "login">Inicio de Sesión</a>
     </div>
     <!--sidebar end-->

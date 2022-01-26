@@ -6,7 +6,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Rout
 providedIn: 'root'
 })
 
-export class AuthguardGuard implements CanActivate {
+export class RoleguardGuard implements CanActivate {
 constructor(private dataService: AuthService,private router: Router ) {}
 canActivate(
 router: ActivatedRouteSnapshot,
@@ -17,7 +17,7 @@ return this.isLogin(routeurl)!;
 
 isLogin(routeurl: string) {
 
-if (this.dataService.isLoggedIn()) {
+if (this.dataService.isAdmin()) {
 return true;
 
 }

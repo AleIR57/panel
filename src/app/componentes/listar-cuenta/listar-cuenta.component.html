@@ -25,8 +25,8 @@
                     <td *ngFor = "let obj of Productos[iControl]">{{obj.nombre}}</td>
                     <td>{{cuenta.correo}}</td>
                     <td>{{cuenta.contrasena}}</td>
-                    <td>{{cuenta.fechaInicio}}</td>
-                    <td>{{cuenta.fechaExpiracion}}</td>
+                    <td>{{cuenta.fechaInicio | date:'dd-MM-yyyy'}}</td>
+                    <td>{{cuenta.fechaExpiracion | date:'dd-MM-yyyy'}}</td>
                     <td>{{cuenta.nombrePerfil}}</td>
                     <td>{{cuenta.ping}}</td>
                     <td>{{cuenta.estado}}</td>

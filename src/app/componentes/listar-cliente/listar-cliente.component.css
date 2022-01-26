@@ -1,3 +1,48 @@
 .card{
     width: 100%;
 }
+
+
+@media screen and (max-width: 1000px){
+    .card{
+      width: 130%;
+    }
+  }
+
+  @media screen and (max-width: 850px){
+    .card{
+      width: 200%;
+    }
+  }
+
+  @media screen and (max-width: 670px){
+    .card{
+      width: 230%;
+    }
+  }
+
+  @media screen and (max-width: 600px){
+    .card{
+      width: 300%;
+    }
+  }
+
+  @media screen and (max-width: 550px){
+    .card{
+      width: 400%;
+    }
+  }
+
+  @media screen and (max-width: 300px){
+    .card{
+      width: 500%;
+    }
+  }
+
+  @media screen and (max-width: 240px){
+    .card{
+      width: 600%;
+    }
+  }
+
+  

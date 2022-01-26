@@ -28,7 +28,7 @@
                     <td>{{venta.cantidad}}</td>
                     <td>{{venta.precioTotal}}</td>
                     <td>{{venta.metodoPago}}</td>
-                    <td>{{venta.fecha}}</td>
+                    <td >{{venta.fecha | date:'dd-MM-yyyy'}}</td>
                     <td>{{venta.observacion}}</td>
                     <td *ngIf="venta.estado == 'En trámite'"><a routerLink = "/editar-venta/{{venta.idVenta}}">{{venta.estado}}</a></td>
                     <td *ngIf="venta.estado != 'En trámite'">{{venta.estado}}</td>

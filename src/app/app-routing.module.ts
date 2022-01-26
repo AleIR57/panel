@@ -1,3 +1,4 @@
+import { RoleguardGuard } from './componentes/roleguard.guard';
 import { ListarClienteComponent } from './componentes/listar-cliente/listar-cliente.component';
 import { EditarClienteComponent } from './componentes/editar-cliente/editar-cliente.component';
 import { AgregarClienteComponent } from './componentes/agregar-cliente/agregar-cliente.component';
@@ -21,23 +22,23 @@ import { AuthguardGuard } from './componentes/authguard.guard';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'agregar-cliente'},
-  {path: 'agregar-cliente', component: AgregarClienteComponent, canActivate: [AuthguardGuard] },
-  {path: 'listar-cliente', component: ListarClienteComponent, canActivate: [AuthguardGuard] },
-  {path: 'editar-cliente/:id', component: EditarClienteComponent, canActivate: [AuthguardGuard] },
-  {path: 'agregar-producto', component: AgregarProductoComponent, canActivate: [AuthguardGuard] },
-  {path: 'listar-producto', component: ListarProductoComponent, canActivate: [AuthguardGuard] },
-  {path: 'editar-producto/:id', component: EditarProductoComponent, canActivate: [AuthguardGuard] },
-  {path: 'agregar-venta', component: AgregarVentaComponent, canActivate: [AuthguardGuard] },
-  {path: 'listar-venta', component: ListarVentaComponent, canActivate: [AuthguardGuard] },
-  {path: 'editar-venta/:id', component: EditarVentaComponent, canActivate: [AuthguardGuard] },
-  {path: 'agregar-cuenta', component: AgregarCuentaComponent, canActivate: [AuthguardGuard] },
-  {path: 'listar-cuenta', component: ListarCuentaComponent, canActivate: [AuthguardGuard] },
-  {path: 'editar-cuenta/:id', component: EditarCuentaComponent, canActivate: [AuthguardGuard] },
-  {path: 'listar-pantalla', component: ListarPantallaComponent, canActivate: [AuthguardGuard] },
+  {path: 'agregar-cliente', component: AgregarClienteComponent, canActivate: [AuthguardGuard, RoleguardGuard]},
+  {path: 'listar-cliente', component: ListarClienteComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'editar-cliente/:id', component: EditarClienteComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'agregar-producto', component: AgregarProductoComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'listar-producto', component: ListarProductoComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'editar-producto/:id', component: EditarProductoComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'agregar-venta', component: AgregarVentaComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'listar-venta', component: ListarVentaComponent },
+  {path: 'editar-venta/:id', component: EditarVentaComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'agregar-cuenta', component: AgregarCuentaComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'listar-cuenta', component: ListarCuentaComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'editar-cuenta/:id', component: EditarCuentaComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'listar-pantalla', component: ListarPantallaComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
   {path: 'login', component: LoginComponent},
-  {path: 'agregar-vendedor', component: AgregarVendedorComponent, canActivate: [AuthguardGuard] },
-  {path: 'listar-vendedor', component: ListarVendedorComponent, canActivate: [AuthguardGuard] },
-  {path: 'editar-vendedor/:id', component: EditarVendedorComponent, canActivate: [AuthguardGuard] },
+  {path: 'agregar-vendedor', component: AgregarVendedorComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'listar-vendedor', component: ListarVendedorComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
+  {path: 'editar-vendedor/:id', component: EditarVendedorComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
 ];
 
 @NgModule({

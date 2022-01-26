@@ -22,8 +22,8 @@
                         <td *ngFor = "let obj2 of Productos [iControl]">{{obj2.nombre}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.correo}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.contrasena}}</td>
-                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaInicio}}</td>
-                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaExpiracion}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaInicio | date:'dd-MM-yyyy'}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaExpiracion | date:'dd-MM-yyyy'}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.nombrePerfil}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.ping}}</td>
                         <td>{{venta.idVenta}}</td>

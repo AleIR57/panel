@@ -12,6 +12,7 @@ export class AppComponent  implements OnInit {
   title = 'panelAngular';
   loginbtn:boolean;
 logoutbtn:boolean;
+adminbtn!:boolean;
 correoVendedorEncriptado: any = localStorage.getItem('token');
 _secretKey:any = "dsfdadasd";
 bytes:any;
@@ -26,10 +27,20 @@ if(this.dataService.isLoggedIn())
 console.log("loggedin");
 this.loginbtn=false;
 this.logoutbtn=true
+this.router.navigateByUrl("/listar-venta");
 }
 else{
 this.loginbtn=true;
 this.logoutbtn=false
+}
+
+if(this.dataService.isAdmin())
+{
+console.log("admin");
+this.adminbtn=true;
+}
+else{
+  this.adminbtn=true;
 }
 
 }
@@ -57,7 +68,9 @@ this.loginbtn = !name;
 logout()
 {
 this.dataService.deleteToken();
+this.dataService.deleteRole();
 window.location.href = window.location.href;
 this.router.navigateByUrl("/login");
+this.logoutbtn = false;
 }
 }

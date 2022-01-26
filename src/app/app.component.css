@@ -54,10 +54,26 @@
     transition: 0.5s;
     transition-property: background;
   }
+
+  .logout_btn2{
+    display:none;
+
+  }
+
+  .logout_btn2icono{
+    display:none;
+
+  }
+
+  
   
   .logout_btn:hover{
     background: #0B87A6;
   }
+
+
+
+  
   
   .sidebarr {
     z-index: 3;
@@ -117,15 +133,16 @@
     padding-right: 10px;
   }
   
-  label #sidebar_btn{
+  label #sidebarr_btn{
     z-index: 1;
     color: #fff;
     position: fixed;
     cursor: pointer;
-    left: 300px;
+    left: 260px;
+    margin-top: -10px;
+
     font-size: 20px;
-    
-    margin: 5px 0;
+  
     transition: 0.5s;
     transition-property: color;
   }
@@ -157,7 +174,7 @@
   .contenidoWrap{
     background: rgb(221, 221, 221);
     transition: 0.5s;
-    height: 100vh;
+    
     display: block;
     white-space: nowrap;
     
@@ -168,6 +185,7 @@
     padding-top: 7%;
     margin-left: 260px;
     margin-right: 10px;
+    height: 100vh;
     display:block;
     white-space: nowrap;
     background-position: center;
@@ -201,4 +219,129 @@
     .contenido{
       padding-top: 20%;
     }
+  }
+
+  @media screen and (max-width: 700px){
+    .sidebarr{
+      left: -190px;
+      transition: 0.5s;
+    }
+    
+    .sidebarr a span{
+      display: none;
+    }
+    
+    .sidebarr a{
+      font-size: 20px;
+      margin-left: 170px;
+      width: 80px;
+      margin-top: -20px;
+      
+    }
+
+    .logout_btn{
+      display: none;
+     
+      
+    }
+
+    .logout_btn2icono{
+      display:block;
+  
+    }
+
+    .center{
+      display: none;
+    }
+  
+    .contenidoWrap{
+      transition: 0.5s;
+    }
+
+    .contenidoWrap{
+      margin-left: -190px;
+    }
+    
+    #check{
+      display: none;
+    }
+
+    label #sidebarr_btn{
+      left: 90%;
+    }
+
+    .logout-btn2{
+      display: inline;
+    }
+
+   
+
+    .sidebarr a{
+
+      line-height: 80px;
+    }
+
+    #check:checked ~ .sidebarr{
+      display: none;
+      
+    }
+    
+    #check:checked ~ .sidebarr a span{
+      display: none;
+    }
+    
+    #check:checked ~ .sidebarr a{
+      display: none;
+    }
+  
+    #check:checked ~ .contenidoWrap{
+      transition: 0.5s;
+    }
+    
+
+    #check:checked ~ .contenidoWrap{
+      margin-left: -250px;
+    }
+    
+    #check{
+      display: none;
+    }
+
+  }
+
+  
+  @media screen and (max-width: 400px){
+    .logout_btn{
+      padding: 5px;
+      background: #19B3D3;
+      text-decoration: none;
+      float: right;
+      margin-top: -35px;
+      margin-right: 0px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      transition: 0.5s;
+      transition-property: background;
+    }
+
+  }
+
+  
+  @media screen and (max-width: 300px){
+    .contenido{
+      padding-top: 25%;
+    }
+
+    .left_areaa h3{
+      color: #fff;
+      
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 900;
+     
+      
+    }
+
   }

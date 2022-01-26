@@ -26,6 +26,8 @@ this.dataService.userlogin(angForm1.value.email,angForm1.value.password)
 .pipe(first())
 .subscribe(
 data => {
+  
+  window.location.reload();
   this.router.navigateByUrl('listar-venta');
 },
 error => (alert("User name or password is incorrect")))
