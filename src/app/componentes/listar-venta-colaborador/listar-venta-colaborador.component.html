@@ -1,0 +1,35 @@
+<div class = "card bg-light">
+    <div class = "card-header bg-light">
+        Ventas
+        <a class = "btn btn-success" routerLink = "/agregar-venta-colaborador/"><i class="fas fa-plus"></i> Agregar venta</a>
+    </div>
+    <div class = "card-body">
+        <h5>Saldo: ${{saldo}}</h5>
+        <h5>Créditos: ${{creditos}}</h5>
+        <table class = "table text-center">
+            <thead>
+                <tr>
+                    <th># Venta</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th>Método de pago</th>
+                    <th>Fecha y hora</th>
+                    <th>Observación</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let venta of Ventas; let iControl = index">
+                    <td>{{venta.idVenta}}</td>
+                    <td>{{venta.cantidad}}</td>
+                    <td>{{venta.precioTotal}}</td>
+                    <td>{{venta.metodoPago}}</td>
+                    <td >{{venta.fecha | date:'dd-MM-yyyy'}}</td>
+                    <td>{{venta.observacion}}</td>
+                    <td *ngIf="venta.estado == 'En trámite'"><a routerLink = "/editar-venta-colaborador/{{venta.idVenta}}">{{venta.estado}}</a></td>
+                    <td *ngIf="venta.estado != 'En trámite'">{{venta.estado}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

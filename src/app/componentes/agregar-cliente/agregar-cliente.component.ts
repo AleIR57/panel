@@ -16,6 +16,7 @@ export class AgregarClienteComponent implements OnInit {
   bytes:any;
   correoVendedor: any;
   idVendedor:any;
+  idRol:any;
 
   constructor(public formulario: FormBuilder, private crudService: CrudService, private ruteador: Router) {
    
@@ -37,7 +38,7 @@ export class AgregarClienteComponent implements OnInit {
       this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
       this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
         this.idVendedor = respuesta[0]['idVendedor'];
-       
+        this.idRol = respuesta[0]['idRol'];
       });
     }
   }
@@ -47,7 +48,13 @@ export class AgregarClienteComponent implements OnInit {
     console.log(this.formularioDeClientes.value);
     this.formularioDeClientes.value['idVendedor'] = this.idVendedor;
     this.crudService.AgregarCliente(this.formularioDeClientes.value).subscribe(respuesta =>{
-      this.ruteador.navigateByUrl('/listar-cliente')
+      if(this.idRol == 1){
+        this.ruteador.navigateByUrl('/listar-cliente-colaborador')
+      }
+      else if(this.idRol == 2){
+        this.ruteador.navigateByUrl('/listar-cliente')
+      }
+      
     });
    
   }

@@ -207,8 +207,15 @@
     margin-top: -20px;
   }
 
- 
 
+  .linea{
+    border: 0.5px solid  lightgray;
+  }
+
+  .sidebarr .saldo{
+    color: rgb(42, 141, 42);
+  }
+ 
   @media screen and (max-width: 1200px){
     .contenido{
       padding-top: 15%;

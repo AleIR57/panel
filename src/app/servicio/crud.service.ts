@@ -14,6 +14,7 @@ export class CrudService {
   API4: string = "http://localhost/crudPanel/cuentas/"
   API5: string = "http://localhost/crudPanel/vendedores/"
   API6: string = "http://localhost/crudPanel/roles/"
+  API7: string = "http://localhost/crudPanel/ventas/index2.php"
 
   constructor(private clienteHttp: HttpClient) { }
 
@@ -63,6 +64,14 @@ export class CrudService {
 
   ObtenerVentas(){
     return this.clienteHttp.get(this.API3)
+  }
+
+  ObtenerClientesDeColaborador(id:any){
+    return this.clienteHttp.get(this.API7+"?consultar="+id)
+  }
+
+  ObtenerVentasDeClientes(id:any){
+    return this.clienteHttp.get(this.API7+"?consultar2="+id)
   }
 
   BorrarVenta(id:any):Observable<any>{
@@ -122,7 +131,7 @@ export class CrudService {
   }
 
   ObtenerVendedorPorCorreo(correo:any):Observable<any>{
-    return this.clienteHttp.get(this.API5+"?consultar2="+correo)
+    return this.clienteHttp.get(this.API5+"?consultar2="+"'"+correo+"'")
   }
 
   ObtenerVendedorPorCorreo2(correo:any):Observable<any>{

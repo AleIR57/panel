@@ -72,7 +72,7 @@ export class ListarVentaComponent implements OnInit {
     console.log(id);
     console.log(iControl);
     if(window.confirm("¿Desea borrar el registro?")){
-      this.crudService.BorrarCliente(id).subscribe((respuesta) =>{
+      this.crudService.BorrarVenta(id).subscribe((respuesta) =>{
         this.Ventas.splice(iControl, 1);
       });
     }

@@ -21,14 +21,19 @@
       <div class = "center">
         <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/blue-and-green-digital-corporation-logo-design-template-def0356f36181905b3efb4e69c3f1c6f_screen.jpg?ts=1561473585" class="profile_image" alt="">
         <h4>{{nombre}}</h4>
-        <h5>${{saldo}}</h5>
+        <h5 class = "saldo">${{saldo}}</h5>
       </div>
-      <a  *ngIf="logoutbtn" routerLink = "listar-cliente"><i class="fas fa-user-alt"></i><span>Clientes</span></a>
-      <a  *ngIf="logoutbtn" routerLink = "listar-producto"><i class="fas fa-tag"></i><span>Productos</span></a>
-      <a  *ngIf="logoutbtn" routerLink = "listar-venta"><i class="fas fa-check-circle"></i><span>Ventas</span></a>
-      <a  *ngIf="logoutbtn" routerLink = "listar-cuenta"><i class="fas fa-photo-video"></i><span>Cuentas</span></a>
-      <a  *ngIf="logoutbtn" routerLink = "listar-pantalla"><i class="fas fa-photo-video"></i><span></span><span>Pantallas</span></a>
-      <a  *ngIf="logoutbtn" routerLink = "listar-vendedor"><i class="fas fa-user-alt"></i><span>Colaboradores</span></a>
+      
+      <a  *ngIf="logoutbtn && adminbtn" routerLink = "listar-cliente" ><i class="fas fa-user-alt"></i><span>Clientes Totales</span></a>
+      <a  *ngIf="logoutbtn && adminbtn" routerLink = "listar-producto"><i class="fas fa-tag"></i><span>Productos</span></a>
+      <a  *ngIf="logoutbtn && adminbtn" routerLink = "listar-venta"><i class="fas fa-check-circle"></i><span>Ventas Totales</span></a>
+      <a  *ngIf="logoutbtn && adminbtn" routerLink = "listar-cuenta"><i class="fas fa-photo-video"></i><span>Cuentas Totales</span></a>
+      <a  *ngIf="logoutbtn && adminbtn" routerLink = "listar-pantalla"><i class="fas fa-photo-video"></i><span></span><span>Pantallas Totales</span></a>
+      <a  *ngIf="logoutbtn && adminbtn" routerLink = "listar-vendedor"><i class="fas fa-user-alt"></i><span>Colaboradores</span></a>
+      <div *ngIf="adminbtn" class = "linea"></div>
+      <a  *ngIf="logoutbtn" routerLink = "listar-venta-colaborador"><i class="fas fa-check-circle"></i><span>Ventas</span></a>
+      <a  *ngIf="logoutbtn" routerLink = "listar-cliente-colaborador"><i class="fas fa-user-alt"></i><span>Clientes</span></a>
+      <a  *ngIf="logoutbtn" routerLink = "listar-pantalla-colaborador"><i class="fas fa-photo-video"></i><span>Pantallas</span></a>
       <a href="#" class="logout_btn2" (click) = "logout()"><i class="fas fa-angle-left" class = "logout_btn2icono"></i></a>
       <a *ngIf="loginbtn"  routerLink = "login">Inicio de Sesión</a>
     </div>

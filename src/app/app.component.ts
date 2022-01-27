@@ -27,26 +27,29 @@ if(this.dataService.isLoggedIn())
 console.log("loggedin");
 this.loginbtn=false;
 this.logoutbtn=true
+
+if(this.dataService.isAdmin())
+{
+console.log("admin");
+this.adminbtn=true;
 this.router.navigateByUrl("/listar-venta");
+}
+else{
+  this.adminbtn=false;
+  this.router.navigateByUrl("/listar-venta-colaborador");
+}
+
 }
 else{
 this.loginbtn=true;
 this.logoutbtn=false
 }
 
-if(this.dataService.isAdmin())
-{
-console.log("admin");
-this.adminbtn=true;
-}
-else{
-  this.adminbtn=true;
-}
 
 }
 
 ngOnInit(): void {
-
+  
   console.log("Correo:" + this.correoVendedorEncriptado);
   this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
   if (this.bytes.toString()) {

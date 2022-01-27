@@ -41,7 +41,8 @@
 
         <div class = "btn-group" role= "group" aria-label = "">
 
-            <button type= "button" routerLink = "/listar-cliente" class= "btn btn-primary boton2">Cancelar</button>
+            <button *ngIf = "idRol == 2" type= "button" routerLink = "/listar-cliente" class= "btn btn-primary boton2">Cancelar</button>
+            <button  *ngIf = "idRol == 1" type= "button" routerLink = "/listar-cliente-colaborador" class= "btn btn-primary boton2">Cancelar</button>
         </div>
 
         

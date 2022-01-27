@@ -25,6 +25,11 @@ import { RegisterComponent } from './componentes/register/register.component';
 import { AgregarVendedorComponent } from './componentes/agregar-vendedor/agregar-vendedor.component';
 import { EditarVendedorComponent } from './componentes/editar-vendedor/editar-vendedor.component';
 import { ListarVendedorComponent } from './componentes/listar-vendedor/listar-vendedor.component';
+import { AgregarVentaColaboradorComponent } from './componentes/agregar-venta-colaborador/agregar-venta-colaborador.component';
+import { EditarVentaColaboradorComponent } from './componentes/editar-venta-colaborador/editar-venta-colaborador.component';
+import { ListarVentaColaboradorComponent } from './componentes/listar-venta-colaborador/listar-venta-colaborador.component';
+import { ListarClienteColaboradorComponent } from './componentes/listar-cliente-colaborador/listar-cliente-colaborador.component';
+import { ListarPantallaColaboradorComponent } from './componentes/listar-pantalla-colaborador/listar-pantalla-colaborador.component';
 
 
 @NgModule({
@@ -48,6 +53,11 @@ import { ListarVendedorComponent } from './componentes/listar-vendedor/listar-ve
     AgregarVendedorComponent,
     EditarVendedorComponent,
     ListarVendedorComponent,
+    AgregarVentaColaboradorComponent,
+    EditarVentaColaboradorComponent,
+    ListarVentaColaboradorComponent,
+    ListarClienteColaboradorComponent,
+    ListarPantallaColaboradorComponent,
   ],
   imports: [
     BrowserModule,

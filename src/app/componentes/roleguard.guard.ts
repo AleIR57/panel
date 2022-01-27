@@ -12,10 +12,10 @@ canActivate(
 router: ActivatedRouteSnapshot,
 state: RouterStateSnapshot): boolean {
 const routeurl: string = state.url;
-return this.isLogin(routeurl)!;
+return this.isAdmin(routeurl)!;
 }
 
-isLogin(routeurl: string) {
+isAdmin(routeurl: string) {
 
 if (this.dataService.isAdmin()) {
 return true;
@@ -23,7 +23,7 @@ return true;
 }
 else{
     this.dataService.redirectUrl = routeurl;
-this.router.navigate(['/login'], {queryParams: { returnUrl: routeurl }} );
+this.router.navigate(['/listar-venta'], {queryParams: { returnUrl: routeurl }} );
 return false;
 }
 

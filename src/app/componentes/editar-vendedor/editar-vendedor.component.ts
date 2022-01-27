@@ -55,29 +55,14 @@ export class EditarVendedorComponent implements OnInit {
     console.log(this.elID);
     console.log(this.formularioDeVendedores.value);
     
-    this.crudService.ObtenerVendedorPorCorreo(this.formularioDeVendedores.value['idCorreo']).subscribe(respeusta =>{
-      this.existeVendedor = true;
-    }, err =>{
-      this.existeVendedor = false;
-    })
-    if(this.existeVendedor == false){
-      this.crudService.AgregarVendedor(this.formularioDeVendedores.value).subscribe(respuesta =>{
-        this.ruteador.navigateByUrl('/listar-vendedor')
-      });
-    }
-    else{
-      console.log("Ya existe un usuario");
-    }
-   
-    if(this.existeVendedor == false){
+
+
     this.formularioDeVendedores.value['idRol'] = this.idRol;
     this.crudService.EditarVendedor(this.elID, this.formularioDeVendedores.value).subscribe(() =>{
       this.ruteador.navigateByUrl('/listar-vendedor')
     });
-  }
-  else{
-    console.log("Ya existe un usuario");
-  }
+
+ 
   }
 
 }

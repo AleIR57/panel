@@ -34,11 +34,6 @@
             <label for = "" class= "text-primary">Obligatorio</label> 
         </div>
 
-        <div class = "mb-3">
-            <label for = "" class= "form-label">Observación:</label>
-            <input required type= "text" class= "form-control" formControlName = "observacion" name = "" id = "" aria-describedby="helpId" placeholder = "Observación">   
-            <label for = "" class= "text-primary">Obligatorio</label>
-        </div>
 
         <div class = "btn-group" role= "group" aria-label = "">
           
@@ -46,15 +41,17 @@
             <button type= "button" *ngIf = "cuenta || valor || selectProducto || selectCliente"  class= "btn btn-success" disabled>Agregar</button>
             
         </div>
-
+      
         <div>
           <label for = "" *ngIf = "valor" class= "text-primary">Saldo menor a lo que se desea comprar</label>
         </div>
-      
+
         <div class = "btn-group" role= "group" aria-label = "">
           <button type= "button" routerLink = "/listar-venta" class= "btn btn-primary boton2">Cancelar</button>
         </div>
-      
+       
+       
+
 
 
 

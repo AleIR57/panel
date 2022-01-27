@@ -14,7 +14,6 @@ export class AuthService {
     baseUrl:string = "http://localhost/crudPanel/php";
     _secretKey:any = "dsfdadasd";
     correoVendedorEncriptado: any = localStorage.getItem('token');
-  __secretKey:any = "dsfdadasd";
   bytes:any;
   correoVendedor: any;
   saldo:any;
@@ -63,15 +62,16 @@ export class AuthService {
     }
 
     isAdmin() {
-      if(this.userrole != undefined){
+      
 
-     
+
        this.userrole = this.getRole();
+       
     this.bytes = CryptoJS.AES.decrypt(this.userrole, this._secretKey);
     if (this.bytes.toString()) {
       this.userrole = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
     }
-  }
+    
     
       if (Number(this.userrole) == 2) {
       return true;

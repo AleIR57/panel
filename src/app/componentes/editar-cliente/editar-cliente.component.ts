@@ -11,6 +11,14 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class EditarClienteComponent implements OnInit {
   formularioDeClientes:FormGroup;
   elID:any;
+
+  correoVendedorEncriptado: any = localStorage.getItem('token');
+  _secretKey:any = "dsfdadasd";
+  bytes:any;
+  correoVendedor: any;
+  idVendedor:any;
+  idRol:any;
+
   constructor(private activeRoute:ActivatedRoute, private crudService: CrudService, public formulario: FormBuilder, private ruteador:Router) {
     this.elID =  this.activeRoute.snapshot.paramMap.get('id');
     console.log(this.elID);
@@ -39,13 +47,27 @@ export class EditarClienteComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log("Correo:" + this.correoVendedorEncriptado);
+    this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
+    if (this.bytes.toString()) {
+      this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
+      this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
+        this.idVendedor = respuesta[0]['idVendedor'];
+        this.idRol = respuesta[0]['idRol'];
+      });
+    }
   }
 
   enviarDatos():any{
     console.log(this.elID);
     console.log(this.formularioDeClientes.value);
     this.crudService.EditarCliente(this.elID, this.formularioDeClientes.value).subscribe(() =>{
-      this.ruteador.navigateByUrl('/listar-cliente')
+      if(this.idRol == 1){
+        this.ruteador.navigateByUrl('/listar-cliente-colaborador')
+      }
+      else if(this.idRol == 2){
+        this.ruteador.navigateByUrl('/listar-cliente')
+      }
     });
   }
 
