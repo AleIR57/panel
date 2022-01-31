@@ -30,7 +30,7 @@ import { EditarVentaColaboradorComponent } from './componentes/editar-venta-cola
 import { ListarVentaColaboradorComponent } from './componentes/listar-venta-colaborador/listar-venta-colaborador.component';
 import { ListarClienteColaboradorComponent } from './componentes/listar-cliente-colaborador/listar-cliente-colaborador.component';
 import { ListarPantallaColaboradorComponent } from './componentes/listar-pantalla-colaborador/listar-pantalla-colaborador.component';
-
+import { NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,8 @@ import { ListarPantallaColaboradorComponent } from './componentes/listar-pantall
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,6 +23,7 @@ export class ListarVentaColaboradorComponent implements OnInit {
   saldo:any;
   creditos:any;
   idVendedor: any;
+  pageActual: number = 1;
 
   constructor(private crudService:CrudService) {
    

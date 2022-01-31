@@ -10,6 +10,7 @@ export class ListarCuentaComponent implements OnInit {
 
   Cuentas:any;
   Productos: any = [];
+  pageActual: number = 1;
   
 
 

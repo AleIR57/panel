@@ -98,6 +98,10 @@ export class CrudService {
     return this.clienteHttp.get(this.API4+"?consultar2="+id)
   }
 
+  ObtenerCuentasNoRenovadas(id:any){
+    return this.clienteHttp.get(this.API4+"?consultar3="+id)
+  }
+
   BorrarCuenta(id:any):Observable<any>{
     return this.clienteHttp.get(this.API4+"?borrar="+id)
   }

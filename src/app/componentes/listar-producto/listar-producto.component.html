@@ -13,12 +13,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let producto of Productos; let iControl = index">
+                <tr *ngFor = "let producto of Productos | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
                     <td>{{producto.nombre}}</td>
                     <td>{{producto.precio}}</td>
                     <td> <a class = "btn btn-info" routerLink = "/editar-producto/{{producto.idProducto}}"><i class="fas fa-edit"></i></a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(producto.idProducto,iControl)"><i class="fas fa-trash-alt"></i></a> </td>
                 </tr>
             </tbody>
         </table>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
     </div>
 </div>

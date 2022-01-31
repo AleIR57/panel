@@ -1,11 +1,13 @@
+<div class = "info" ><h5>Saldo: ${{saldo}}</h5><img src = "https://cdn-icons-png.flaticon.com/512/50/50268.png"></div>
+    <div class = "info"><h5>Créditos: ${{creditos}}</h5><img src = "https://i.pinimg.com/originals/bd/f4/a4/bdf4a4035d7aa53773dc70d7c12c1692.png"></div>
 <div class = "card bg-light">
+    
     <div class = "card-header bg-light">
         Ventas
         <a class = "btn btn-success" routerLink = "/agregar-venta/"><i class="fas fa-plus"></i> Agregar venta</a>
     </div>
     <div class = "card-body">
-        <h5>Saldo: ${{saldo}}</h5>
-        <h5>Créditos: ${{creditos}}</h5>
+
         <table class = "table text-center">
             <thead>
                 <tr>
@@ -21,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let venta of Ventas; let iControl = index">
+                <tr *ngFor = "let venta of Ventas | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
                     <td>{{venta.idVenta}}</td>
                     <td *ngFor = "let obj of Productos[iControl]">{{obj.nombre}}</td>
                     <td *ngFor = "let obj2 of Clientes[iControl]">{{obj2.nombres}} {{obj2.apellidos}}</td>
@@ -35,5 +37,6 @@
                 </tr>
             </tbody>
         </table>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
     </div>
 </div>

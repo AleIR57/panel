@@ -11,6 +11,7 @@ export class ListarClienteComponent implements OnInit {
 
   Clientes:any;
   Vendedores:any = [];
+  pageActual: number = 1;
 
 
   constructor(private crudService:CrudService) { }

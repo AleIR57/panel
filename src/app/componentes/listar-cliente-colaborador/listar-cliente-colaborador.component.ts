@@ -14,6 +14,7 @@ export class ListarClienteColaboradorComponent implements OnInit {
   bytes:any;
   correoVendedor: any;
   idVendedor:any;
+  pageActual: number = 1;
 
 
   constructor(private crudService:CrudService) { }

@@ -13,12 +13,16 @@ export class AppComponent  implements OnInit {
   loginbtn:boolean;
 logoutbtn:boolean;
 adminbtn!:boolean;
+ventas!: boolean;
 correoVendedorEncriptado: any = localStorage.getItem('token');
 _secretKey:any = "dsfdadasd";
 bytes:any;
 correoVendedor: any;
 nombre:any;
 saldo:any;
+creditos:any;
+cuentas:any;
+cuentasNoRenovadas:any = [];
 
 constructor(private dataService: AuthService, private router: Router, private crudService:CrudService) {
 dataService.getLoggedInName.subscribe(name => this.changeName(name));
@@ -46,10 +50,14 @@ this.logoutbtn=false
 }
 
 
+
 }
 
 ngOnInit(): void {
-  
+
+  if(location.pathname == "/listar-venta"){
+    this.ventas = true;
+  }
   console.log("Correo:" + this.correoVendedorEncriptado);
   this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
   if (this.bytes.toString()) {
@@ -57,9 +65,12 @@ ngOnInit(): void {
     this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
       this.nombre = respuesta[0]['nombre'];
       this.saldo = respuesta[0]['saldo'];
+      this.creditos = respuesta[0]['creditos'];
      
     });
   }
+
+ 
 
 }
 

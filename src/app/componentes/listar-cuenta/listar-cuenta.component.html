@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let cuenta of Cuentas; let iControl = index">
+                <tr *ngFor = "let cuenta of Cuentas | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
                     <td *ngFor = "let obj of Productos[iControl]">{{obj.nombre}}</td>
                     <td>{{cuenta.correo}}</td>
                     <td>{{cuenta.contrasena}}</td>
@@ -34,5 +34,6 @@
                 </tr>
             </tbody>
         </table>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
     </div>
 </div>

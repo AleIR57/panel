@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListarProductoComponent implements OnInit {
 
   Productos:any;
-
+  pageActual: number = 1;
 
   constructor(private crudService:CrudService) { }
 

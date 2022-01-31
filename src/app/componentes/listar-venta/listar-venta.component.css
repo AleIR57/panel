@@ -3,6 +3,49 @@
    
 }
 
+
+.info{
+  background: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 0 2px lightgray;
+  display: inline-block;
+  width: 20%;
+
+  text-align: center;
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+
+.info h5{
+  padding-top: 15%;
+}
+
+.info img{
+  width: 30%;
+  height: 40%;
+}
+
+.card-ventas{
+  background: white;
+}
+
+
+ 
+@media screen and (max-width: 1200px){
+
+  .info{
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 800px){
+
+  .info{
+    width: 40%;
+  }
+}
+
 @media screen and (max-width: 1000px){
     .card{
       width: 200%;

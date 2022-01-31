@@ -11,6 +11,7 @@ export class ListarPantallaComponent implements OnInit {
   Ventas:any = [];
   Cuentas:any = [];
   Productos: any = [];
+  pageActual: number = 1;
 
   constructor(private crudService:CrudService) { }
 

@@ -12,6 +12,7 @@
         <h3>Panel <span>Digital</span></h3>
       </div>
       <div class="right_areaa">
+        <a href="#" class="bell_btn"><i class="fas fa-bell"></i></a>
         <a href="#" class="logout_btn" (click) = "logout()"><i class="fas fa-angle-left"></i> Salir</a>
       </div>
     </div>
@@ -22,6 +23,7 @@
         <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/blue-and-green-digital-corporation-logo-design-template-def0356f36181905b3efb4e69c3f1c6f_screen.jpg?ts=1561473585" class="profile_image" alt="">
         <h4>{{nombre}}</h4>
         <h5 class = "saldo">${{saldo}}</h5>
+       
       </div>
       
       <a  *ngIf="logoutbtn && adminbtn" routerLink = "listar-cliente" ><i class="fas fa-user-alt"></i><span>Clientes Totales</span></a>
@@ -39,7 +41,12 @@
     </div>
     <!--sidebar end-->
     <div class = "contenidoWrap" *ngIf = "logoutbtn">
-      <div class="contenido"><router-outlet></router-outlet></div>
+      <div class = "tarjeta-contenido">
+        
+       
+        <div class="contenido"><router-outlet></router-outlet></div>
+      </div>
+     
     </div>
       
     

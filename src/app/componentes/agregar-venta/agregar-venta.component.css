@@ -80,3 +80,7 @@
 .content-modal .btn-cerrar label:hover{
     background-color: #185E83;
 }
+
+.grupo-boton-2{
+    display:inline-block;
+}

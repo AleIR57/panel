@@ -18,6 +18,7 @@ export class ListarVentaComponent implements OnInit {
   correoVendedor: any;
   saldo:any;
   creditos:any;
+  pageActual: number = 1;
 
 
   constructor(private crudService:CrudService) { }
