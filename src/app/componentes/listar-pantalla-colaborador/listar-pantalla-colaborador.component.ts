@@ -48,7 +48,7 @@ export class ListarPantallaColaboradorComponent implements OnInit {
                 this.VentasAux2 = this.VentasAux[j];
                
               }
-    
+       
               for(let k = 0; k < this.VentasAux2.length; k++){
                 this.Ventas.push(this.VentasAux2[k]);
                 this.crudService.ObtenerCuenta(this.VentasAux2[k]['idCuenta']).subscribe(respuesta=>{
@@ -57,13 +57,15 @@ export class ListarPantallaColaboradorComponent implements OnInit {
                   
                 });
 
-                this.cantidadPantallas = Object.keys(this.VentasAux2).length;
+              
                 this.crudService.ObtenerProducto(this.VentasAux2[k]['idProducto']).subscribe(respuesta2=>{
                   
                   this.Productos.push(respuesta2)
+                  this.cantidadPantallas = Object.keys(this.Productos).length;
                 });
               }
 
+        
         
 
             
