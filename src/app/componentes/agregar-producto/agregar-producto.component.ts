@@ -25,8 +25,7 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   enviarDatos():any{
-    console.log("Me presionaste ");
-    console.log(this.formularioDeProductos.value);
+  
     this.crudService.AgregarProducto(this.formularioDeProductos.value).subscribe(respuesta =>{
       this.ruteador.navigateByUrl('/listar-producto')
     });

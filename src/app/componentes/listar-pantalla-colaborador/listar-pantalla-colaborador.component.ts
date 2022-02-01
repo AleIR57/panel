@@ -21,6 +21,7 @@ export class ListarPantallaColaboradorComponent implements OnInit {
   correoVendedor: any;
   idVendedor: any;
   pageActual: number = 1;
+  cantidadPantallas:any;
 
   constructor(private crudService:CrudService) { }
 
@@ -56,6 +57,7 @@ export class ListarPantallaColaboradorComponent implements OnInit {
                   
                 });
 
+                this.cantidadPantallas = Object.keys(this.VentasAux2).length;
                 this.crudService.ObtenerProducto(this.VentasAux2[k]['idProducto']).subscribe(respuesta2=>{
                   
                   this.Productos.push(respuesta2)

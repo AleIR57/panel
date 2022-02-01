@@ -14,10 +14,10 @@ export class EditarProductoComponent implements OnInit {
   elID:any;
   constructor(private activeRoute:ActivatedRoute, private crudService: CrudService, public formulario: FormBuilder, private ruteador:Router) {
     this.elID =  this.activeRoute.snapshot.paramMap.get('id');
-    console.log(this.elID);
+
     this.crudService.ObtenerProducto(this.elID).subscribe(
       respuesta=>{
-        console.log(respuesta);
+      
         this.formularioDeProductos.setValue({
           nombre: respuesta[0]['nombre'],
           precio:  respuesta[0]['precio'],
@@ -34,8 +34,7 @@ export class EditarProductoComponent implements OnInit {
   }
 
   enviarDatos():any{
-    console.log(this.elID);
-    console.log(this.formularioDeProductos.value);
+
     this.crudService.EditarProducto(this.elID, this.formularioDeProductos.value).subscribe(() =>{
       this.ruteador.navigateByUrl('/listar-producto')
     });

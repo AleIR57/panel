@@ -21,7 +21,7 @@ export class EditarCuentaComponent implements OnInit {
     console.log(this.elID);
     this.crudService.ObtenerCuenta(this.elID).subscribe(
       respuesta=>{
-        console.log(respuesta);
+       
         this.formularioDeCuentas.setValue({
           correo: respuesta[0]['correo'],
           contrasena:  respuesta[0]['contrasena'],
@@ -46,8 +46,7 @@ export class EditarCuentaComponent implements OnInit {
   }
 
   enviarDatos():any{
-    console.log(this.elID);
-    console.log(this.formularioDeCuentas.value);
+
     this.formularioDeCuentas.value['fechaInicio'] = this.fechaInicio;
     this.formularioDeCuentas.value['fechaExpiracion'] = this.fechaExpiracion;
     this.formularioDeCuentas.value['estado'] = this.estado;

@@ -12,6 +12,7 @@ export class ListarPantallaComponent implements OnInit {
   Cuentas:any = [];
   Productos: any = [];
   pageActual: number = 1;
+  cantidadPantallas:any;
 
   constructor(private crudService:CrudService) { }
 
@@ -22,10 +23,10 @@ export class ListarPantallaComponent implements OnInit {
       this.Ventas = respuesta;
 
       console.log("sasadasd" + this.Ventas.length);
-
+      this.cantidadPantallas = Object.keys(this.Ventas).length;
     for(let i = 0; i < Object.keys(this.Ventas).length; i++){
       this.crudService.ObtenerCuenta(this.Ventas[i]['idCuenta']).subscribe(respuesta=>{
-        
+        console.log(respuesta);
         this.Cuentas.push(respuesta)
       });
 
@@ -35,7 +36,7 @@ export class ListarPantallaComponent implements OnInit {
 
     for(let i = 0; i < Object.keys(this.Ventas).length; i++){
       this.crudService.ObtenerProducto(this.Ventas[i]['idProducto']).subscribe(respuesta=>{
-        
+    
         this.Productos.push(respuesta)
       });
     }

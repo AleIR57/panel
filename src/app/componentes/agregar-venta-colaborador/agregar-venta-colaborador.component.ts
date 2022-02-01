@@ -69,19 +69,19 @@ export class AgregarVentaColaboradorComponent implements OnInit {
 
   ngOnInit(): void {
     if(+this.formularioDeVentas.value['idCliente'] == 0){
-      console.log("Cliente true");
+      
       this.selectCliente = true;
     }
     else if(+this.formularioDeVentas.value['idCliente'] > 0){
-      console.log("Cliente false");
+    
       this.selectCliente = false;
     }
     if(+this.formularioDeVentas.value['idProducto'] == 0){
-      console.log("Cliente true");
+      
       this.selectCliente = true;
     }
     else if(+this.formularioDeVentas.value['idProducto'] > 0){
-      console.log("Cliente false");
+   
       this.selectProducto = false;
     }
     console.log("Correo:" + this.correoVendedorEncriptado);
@@ -102,9 +102,9 @@ export class AgregarVentaColaboradorComponent implements OnInit {
        
       });
     }
-    console.log();
+
     this.crudService.ObtenerProductos().subscribe(respuesta=>{
-      console.log(respuesta);
+     
       this.Productos = respuesta;
 
     });
@@ -123,7 +123,7 @@ export class AgregarVentaColaboradorComponent implements OnInit {
       this.cuenta = false;
     
     }, err =>{
-      console.log(err);
+      
       this.cuenta = true;
     })
 
@@ -135,22 +135,22 @@ export class AgregarVentaColaboradorComponent implements OnInit {
 
   
     if(+this.formularioDeVentas.value['idProducto'] == 0){
-      console.log("Cliente true");
+     
       this.selectProducto= true;
     }
     else if(+this.formularioDeVentas.value['idProducto'] > 0){
-      console.log("Cliente false");
+    
       this.selectProducto = false;
     }
   }
 
   clienteSeleccionado(){
     if(+this.formularioDeVentas.value['idCliente'] == 0){
-      console.log("Cliente true");
+      
       this.selectCliente = true;
     }
     else if(+this.formularioDeVentas.value['idCliente'] > 0){
-      console.log("Cliente false");
+ 
       this.selectCliente = false;
     }
   }
@@ -158,11 +158,9 @@ export class AgregarVentaColaboradorComponent implements OnInit {
 
 
   enviarDatos():any{
-    console.log(this.saldo);
+    
     this.formularioDeVentas.value['precioTotal'] = this.precioProducto;
-    console.log(+this.formularioDeVentas.value['precioTotal']);
-    console.log(+this.formularioDeVentas.value['cantidad'] * (+this.formularioDeVentas.value['precioTotal']));
-    console.log("Id de la cuenta: " + this.idCuenta);
+   
 
     if(+this.saldo >= (+this.formularioDeVentas.value['cantidad'] * (+this.formularioDeVentas.value['precioTotal'])) && this.idCuenta != null && this.formularioDeVentas.value['idProducto'] > 0 && this.formularioDeVentas.value['idCliente'] > 0){
       this.valor = false;
@@ -191,15 +189,14 @@ export class AgregarVentaColaboradorComponent implements OnInit {
       });
   
     
-      console.log("Me presionaste ");
-      console.log(this.formularioDeVentas.value);
+
     
       this.crudService.EditarSaldoVendedor(this.idVendedor, this.formularioDeVendedor.value).subscribe(respuesta =>{
-        console.log("Saldo modificado");
+     
       })
      
       this.crudService.AgregarVenta(this.formularioDeVentas.value).subscribe(respuesta =>{
-        console.log(respuesta);
+ 
        
       });
       this.abrirModal = true;

@@ -12,15 +12,16 @@ export class ListarVendedorComponent implements OnInit {
   Vendedores:any;
   Roles:any = [];
   pageActual: number = 1;
+  cantidadColaboradores:any;
 
 
   constructor(private crudService:CrudService) { }
 
   ngOnInit(): void {
     this.crudService.ObtenerVendedores().subscribe(respuesta=>{
-      console.log(respuesta);
-      this.Vendedores = respuesta;
 
+      this.Vendedores = respuesta;
+      this.cantidadColaboradores = Object.keys(this.Vendedores).length;
       for(let i = 0; i < Object.keys(this.Vendedores).length; i++){
         this.crudService.ObtenerRol(this.Vendedores[i]['idRol']).subscribe(respuesta=>{
           
@@ -32,8 +33,7 @@ export class ListarVendedorComponent implements OnInit {
   }
 
   borrarRegistro(id:any, iControl:any){
-    console.log(id);
-    console.log(iControl);
+  
     if(window.confirm("¿Desea borrar el registro?")){
       this.crudService.BorrarVendedor(id).subscribe((respuesta) =>{
         this.Vendedores.splice(iControl, 1);

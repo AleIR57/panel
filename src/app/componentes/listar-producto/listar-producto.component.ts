@@ -10,19 +10,20 @@ export class ListarProductoComponent implements OnInit {
 
   Productos:any;
   pageActual: number = 1;
+  cantidadProductos:any;
 
   constructor(private crudService:CrudService) { }
 
   ngOnInit(): void {
     this.crudService.ObtenerProductos().subscribe(respuesta=>{
-      console.log(respuesta);
+
       this.Productos = respuesta;
+      this.cantidadProductos = Object.keys(this.Productos).length;
     });
   }
 
   borrarRegistro(id:any, iControl:any){
-    console.log(id);
-    console.log(iControl);
+
     if(window.confirm("¿Desea borrar el registro?")){
       this.crudService.BorrarProducto(id).subscribe((respuesta) =>{
         this.Productos.splice(iControl, 1);

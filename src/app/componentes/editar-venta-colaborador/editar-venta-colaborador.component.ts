@@ -26,10 +26,10 @@ export class EditarVentaColaboradorComponent implements OnInit {
   observacion: any;
   constructor(private activeRoute:ActivatedRoute, private crudService: CrudService, public formulario: FormBuilder, private ruteador:Router) {
     this.elID =  this.activeRoute.snapshot.paramMap.get('id');
-    console.log(this.elID);
+   
     this.crudService.ObtenerVenta(this.elID).subscribe(
       respuesta=>{
-        console.log(respuesta);
+       
         this.formularioDeVentas.setValue({
 
           idProducto:  respuesta[0]['idProducto'],
@@ -86,8 +86,7 @@ export class EditarVentaColaboradorComponent implements OnInit {
   }
 
   enviarDatos():any{
-    console.log(this.elID);
-    console.log(this.formularioDeVentas.value);
+
     this.formularioDeVentas.value['idProducto'] = this.idProducto;
     this.formularioDeVentas.value['idCliente'] = this.idCliente;
     this.formularioDeVentas.value['idCuenta'] = this.idCuenta;

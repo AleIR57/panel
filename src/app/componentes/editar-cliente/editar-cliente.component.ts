@@ -47,7 +47,7 @@ export class EditarClienteComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log("Correo:" + this.correoVendedorEncriptado);
+
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {
       this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
@@ -59,8 +59,7 @@ export class EditarClienteComponent implements OnInit {
   }
 
   enviarDatos():any{
-    console.log(this.elID);
-    console.log(this.formularioDeClientes.value);
+  
     this.crudService.EditarCliente(this.elID, this.formularioDeClientes.value).subscribe(() =>{
       if(this.idRol == 1){
         this.ruteador.navigateByUrl('/listar-cliente-colaborador')

@@ -1,5 +1,6 @@
-<div class = "card bg-light">
-    <div class = "card-header bg-light">
+<div class = "info" ><h5>Pantallas: {{cantidadPantallas}}</h5><img src = "https://static.thenounproject.com/png/1317447-200.png"></div>
+<div class = "card ">
+    <div class = "card-header">
         Pantallas
     </div>
     <div class = "card-body">
@@ -19,7 +20,7 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let venta of Ventas | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
-                        <td *ngFor = "let obj2 of Productos [iControl]">{{obj2.nombre}}</td>
+                        <td *ngFor = "let obj2 of Productos [iControl] ">{{obj2.nombre}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.correo}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.contrasena}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaInicio | date:'dd-MM-yyyy'}}</td>

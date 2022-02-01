@@ -15,12 +15,13 @@ export class ListarClienteColaboradorComponent implements OnInit {
   correoVendedor: any;
   idVendedor:any;
   pageActual: number = 1;
+  cantidadClientes:any;
 
 
   constructor(private crudService:CrudService) { }
 
   ngOnInit(): void {
-    console.log("Correo:" + this.correoVendedorEncriptado);
+
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {
       this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
@@ -29,6 +30,7 @@ export class ListarClienteColaboradorComponent implements OnInit {
         this.crudService.ObtenerClientesDeColaborador(respuesta[0]['idVendedor']).subscribe(respuesta=>{
           console.log(respuesta);
           this.Clientes = respuesta;
+          this.cantidadClientes = Object.keys(this.Clientes).length;
     
     
           for(let i = 0; i < Object.keys(this.Clientes).length; i++){
@@ -45,8 +47,7 @@ export class ListarClienteColaboradorComponent implements OnInit {
   }
 
   borrarRegistro(id:any, iControl:any){
-    console.log(id);
-    console.log(iControl);
+  
     if(window.confirm("¿Desea borrar el registro?")){
       this.crudService.BorrarCliente(id).subscribe((respuesta) =>{
         this.Clientes.splice(iControl, 1);

@@ -1,8 +1,8 @@
 <div class = "info" ><h5>Saldo: ${{saldo}}</h5><img src = "https://cdn-icons-png.flaticon.com/512/50/50268.png"></div>
     <div class = "info"><h5>Créditos: ${{creditos}}</h5><img src = "https://i.pinimg.com/originals/bd/f4/a4/bdf4a4035d7aa53773dc70d7c12c1692.png"></div>
-<div class = "card bg-light">
+<div class = "card ">
     
-    <div class = "card-header bg-light">
+    <div class = "card-header ">
         Ventas
         <a class = "btn btn-success" routerLink = "/agregar-venta/"><i class="fas fa-plus"></i> Agregar venta</a>
     </div>
@@ -23,20 +23,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let venta of Ventas | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
+                <tr *ngFor = "let venta of Ventas | paginate: { itemsPerPage:8, currentPage:pageActual}; let iControl = index">
                     <td>{{venta.idVenta}}</td>
                     <td *ngFor = "let obj of Productos[iControl]">{{obj.nombre}}</td>
                     <td *ngFor = "let obj2 of Clientes[iControl]">{{obj2.nombres}} {{obj2.apellidos}}</td>
                     <td>{{venta.cantidad}}</td>
                     <td>{{venta.precioTotal}}</td>
                     <td>{{venta.metodoPago}}</td>
-                    <td >{{venta.fecha | date:'dd-MM-yyyy'}}</td>
+                    <td >{{venta.fecha | date:'dd-MM-yyyy h:mm'}}</td>
                     <td>{{venta.observacion}}</td>
                     <td *ngIf="venta.estado == 'En trámite'"><a routerLink = "/editar-venta/{{venta.idVenta}}">{{venta.estado}}</a></td>
                     <td *ngIf="venta.estado != 'En trámite'">{{venta.estado}}</td>
                 </tr>
             </tbody>
         </table>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+        <pagination-controls  (pageChange)="pageActual = $event"></pagination-controls>
     </div>
 </div>

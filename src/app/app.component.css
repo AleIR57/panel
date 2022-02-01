@@ -1,3 +1,5 @@
+
+
 .contenedor{
     margin: 0;
     padding: 0;
@@ -63,8 +65,8 @@
     
     text-decoration: none;
     float: right;
-    margin-top: -35px;
-    margin-right: 120px;
+    margin-top: -38px;
+    margin-right: 10%;
     border-radius: 2px;
     font-size: 15px;
     font-weight: 600;
@@ -199,11 +201,23 @@
     
   }
 
+  .vista-componente{
+    border: 1px solid lightgray;
+    margin-bottom: 1%;
+    margin-top: -2%;
+    padding: 1%;
+    text-align: end;
+    border-radius: 5px;
+ 
+  }
+  
 
   .contenido{
 
  
     background-color: rgb(255, 255, 255);
+  
+ 
     display:block;
     white-space: nowrap;
     background-position: center;
@@ -229,6 +243,7 @@
 
   .linea{
     border: 0.5px solid  lightgray;
+    margin-bottom: 3%;
   }
 
   .sidebarr .saldo{
@@ -238,7 +253,7 @@
   .tarjeta-contenido{
    
     width: 100%;
-    
+  
     background-color: white;
     padding-top: 7%;
     padding-left: 260px;
@@ -277,7 +292,7 @@
  
   @media screen and (max-width: 1200px){
     .tarjeta-contenido{
-      padding-top: 15%;
+      padding-top: 10%;
     }
     .info{
       width: 30%;
@@ -286,7 +301,7 @@
 
   @media screen and (max-width: 800px){
     .tarjeta-contenido{
-      padding-top: 20%;
+      padding-top: 15%;
     }
 
     .info{
@@ -316,6 +331,10 @@
       width: 80px;
       margin-top: -20px;
       
+    }
+
+    #check:checked ~ .sidebarr a{
+      line-height: 80px;
     }
 
     .logout_btn{
@@ -357,7 +376,7 @@
 
     .sidebarr a{
 
-      line-height: 80px;
+      line-height: 100px;
     }
 
     #check:checked ~ .sidebarr{

@@ -25,7 +25,7 @@ export class ListarVentaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("Correo:" + this.correoVendedorEncriptado);
+
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {
       this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
@@ -37,16 +37,16 @@ export class ListarVentaComponent implements OnInit {
     }
 
     this.crudService.ObtenerVentas().subscribe(respuesta=>{
-      console.log(respuesta);
+   
       this.Ventas = respuesta;
 
-      console.log("sasadasd" + this.Ventas.length);
+
 
     for(let i = 0; i < Object.keys(this.Ventas).length; i++){
       this.crudService.ObtenerCliente(this.Ventas[i]['idCliente']).subscribe(respuesta=>{
         
         this.Clientes.push(respuesta)
-        console.log(this.Clientes);
+
       });
     }
 
@@ -54,7 +54,7 @@ export class ListarVentaComponent implements OnInit {
       this.crudService.ObtenerProducto(this.Ventas[i]['idProducto']).subscribe(respuesta=>{
         
         this.Productos.push(respuesta)
-        console.log(this.Productos);
+   
       });
     }
 

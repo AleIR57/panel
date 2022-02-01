@@ -16,10 +16,10 @@ export class EditarVendedorComponent implements OnInit {
   existeVendedor: boolean = true;
   constructor(private activeRoute:ActivatedRoute, private crudService: CrudService, public formulario: FormBuilder, private ruteador:Router) {
     this.elID =  this.activeRoute.snapshot.paramMap.get('id');
-    console.log(this.elID);
+
     this.crudService.ObtenerVendedor(this.elID).subscribe(
       respuesta=>{
-        console.log(respuesta);
+      
         this.formularioDeVendedores.setValue({
           nombre: respuesta[0]['nombre'],
           nombreUsuario:  respuesta[0]['nombreUsuario'],

@@ -98,8 +98,8 @@ export class CrudService {
     return this.clienteHttp.get(this.API4+"?consultar2="+id)
   }
 
-  ObtenerCuentasNoRenovadas(id:any){
-    return this.clienteHttp.get(this.API4+"?consultar3="+id)
+  ObtenerCuentasNoRenovadas(fecha:any){
+    return this.clienteHttp.get(this.API4+"?consultar3='"+fecha+"'")
   }
 
   BorrarCuenta(id:any):Observable<any>{
@@ -117,6 +117,7 @@ export class CrudService {
   EditarEstadoDeCuenta(id:any, datosCuenta:any):Observable<any>{
     return this.clienteHttp.post(this.API4+"?actualizarEstado="+id,datosCuenta)
   }
+  
 
   AgregarVendedor(datosVendedor:Vendedor):Observable<any>{
     return this.clienteHttp.post(this.API5+"?insertar=1",datosVendedor)

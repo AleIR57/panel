@@ -1,8 +1,8 @@
 <div class = "info" ><h5>Saldo: ${{saldo}}</h5><img src = "https://cdn-icons-png.flaticon.com/512/50/50268.png"></div>
     <div class = "info"><h5>Créditos: ${{creditos}}</h5><img src = "https://i.pinimg.com/originals/bd/f4/a4/bdf4a4035d7aa53773dc70d7c12c1692.png"></div>
 
-<div class = "card bg-light">
-    <div class = "card-header bg-light">
+<div class = "card">
+    <div class = "card-header">
         Ventas
         <a class = "btn btn-success" routerLink = "/agregar-venta-colaborador/"><i class="fas fa-plus"></i> Agregar venta</a>
     </div>
@@ -26,7 +26,7 @@
                     <td>{{venta.cantidad}}</td>
                     <td>{{venta.precioTotal}}</td>
                     <td>{{venta.metodoPago}}</td>
-                    <td >{{venta.fecha | date:'dd-MM-yyyy'}}</td>
+                    <td >{{venta.fecha | date:'dd-MM-yyyy '}}</td>
                     <td>{{venta.observacion}}</td>
                     <td *ngIf="venta.estado == 'En trámite'"><a routerLink = "/editar-venta-colaborador/{{venta.idVenta}}">{{venta.estado}}</a></td>
                     <td *ngIf="venta.estado != 'En trámite'">{{venta.estado}}</td>
