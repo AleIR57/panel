@@ -19,12 +19,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let venta of Ventas | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
+                <tr *ngFor = "let venta of Ventas; let iControl = index">
                         <td *ngFor = "let obj2 of Productos [iControl]">{{obj2.nombre}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.correo}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.contrasena}}</td>
-                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaInicio | date:'dd-MM-yyyy'}}</td>
-                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaExpiracion | date:'dd-MM-yyyy'}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaInicio | date:'dd/MM/yyyy, h:mm a'}}</td>
+                        <td *ngFor = "let obj of Cuentas [iControl]">{{obj.fechaExpiracion | date:'dd/MM/yyyy, h:mm a'}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.nombrePerfil}}</td>
                         <td *ngFor = "let obj of Cuentas [iControl]">{{obj.ping}}</td>
                         <td>{{venta.idVenta}}</td>
@@ -34,6 +34,6 @@
                 </tr>
             </tbody>
         </table>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
     </div>
 </div>

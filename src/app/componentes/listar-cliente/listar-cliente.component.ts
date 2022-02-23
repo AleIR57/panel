@@ -1,3 +1,4 @@
+import { ApartadoService } from './../../servicio/apartado.service';
 import { Component, OnInit } from '@angular/core';
 
 import { CrudService } from 'src/app/servicio/crud.service';
@@ -13,11 +14,13 @@ export class ListarClienteComponent implements OnInit {
   Vendedores:any = [];
   pageActual: number = 1;
   cantidadClientes:any;
+  apartado:any;
 
 
-  constructor(private crudService:CrudService) { }
+  constructor(private crudService:CrudService, private apartadoService: ApartadoService) { }
 
   ngOnInit(): void {
+    this.apartado = this.apartadoService.definirApartado('Clientes desde');
     this.crudService.ObtenerClientes().subscribe(respuesta=>{
      
       this.Clientes = respuesta;

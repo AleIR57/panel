@@ -3,6 +3,7 @@
     padding: 0;
     font-family: "Roboto", sans-serif;
     overflow-x: hidden;
+    overflow-y: hidden;
   }
 
 .center{
@@ -37,14 +38,14 @@
   }
   
   .left_areaa span{
-    color: #19B3D3;
+    color: rgb(133, 66, 153);
     
   }
 
 
   .logout_btn{
     padding: 5px;
-    background: #19B3D3;
+    background: rgb(133, 66, 153);
     text-decoration: none;
     display: inline-block;
     float: right;
@@ -144,7 +145,7 @@
   }
   
   .sidebarr a:hover{
-    background: #19B3D3;
+    background: rgb(133, 66, 153);
   }
   
   .sidebarr i{
@@ -211,6 +212,20 @@
   }
   
 
+  .vista-componente label{
+    color:rgb(133, 66, 153);
+    text-decoration:underline;
+    margin-right: 1%;
+  }
+
+  .vista-componente label:hover{
+    cursor: pointer;
+  }
+
+  .vista-componente i:hover{
+    cursor: pointer;
+  }
+
   .contenido{
 
  
@@ -224,7 +239,7 @@
     transition: 0.5s;
     overflow-x: auto;
     overflow-y: auto;
-    max-height: 100%;
+    height: 90%;
   }
   
   #check:checked ~ .contenidoWrap{
@@ -252,7 +267,6 @@
   .tarjeta-contenido{
    
     width: 100%;
-  
     background-color: white;
     padding-top: 7%;
     padding-left: 260px;
@@ -263,6 +277,9 @@
     background-position: center;
     background-size: cover;
     transition: 0.5s;
+    height:100vh;
+
+   
 
   }
 
@@ -287,6 +304,8 @@
     width: 30%;
     height: 40%;
   }
+
+  
   
  
   @media screen and (max-width: 1200px){

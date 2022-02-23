@@ -1,5 +1,6 @@
 import { CrudService } from 'src/app/servicio/crud.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-venta',
@@ -21,10 +22,11 @@ export class ListarVentaComponent implements OnInit {
   pageActual: number = 1;
 
 
-  constructor(private crudService:CrudService) { }
+  constructor(private crudService:CrudService, private router: Router) { }
 
   ngOnInit(): void {
 
+    console.log(this.router.url);
 
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {

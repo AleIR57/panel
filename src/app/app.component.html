@@ -9,7 +9,7 @@
         <i class="fas fa-bars" id="sidebarr_btn"></i>
       </label>
       <div class="left_areaa">
-        <h3>Panel <span>Digital</span></h3>
+        <h3>CONEXION <span>PRO</span></h3>
       </div>
       <div class="right_areaa">
         <a  class="bell_btn"><i class="fas fa-bell"></i></a>
@@ -20,7 +20,7 @@
     <!--sidebar start-->
     <div class="sidebarr" *ngIf = "logoutbtn">
       <div class = "center">
-        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/blue-and-green-digital-corporation-logo-design-template-def0356f36181905b3efb4e69c3f1c6f_screen.jpg?ts=1561473585" class="profile_image" alt="">
+        <img src="../assets/logoPanelFondo.jpeg" class="profile_image" alt="">
         <h4>{{nombre}}</h4>
         <h5 class = "saldo">${{saldo}}</h5>
        
@@ -42,7 +42,7 @@
     <!--sidebar end-->
     <div class = "contenidoWrap" *ngIf = "logoutbtn">
       <div class = "tarjeta-contenido">
-        <div class = "vista-componente"><i class = "fas fa-home"></i></div>
+        <div class = "vista-componente"><label>{{apartado}} </label><i class = "fas fa-home"></i></div>
         
        
         <div class="contenido"><router-outlet></router-outlet></div>

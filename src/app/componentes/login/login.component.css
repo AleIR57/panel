@@ -11,6 +11,10 @@
     
 }
 
+.contenedor-tarjeta h2{
+    color: rgb(124, 20, 194);
+}
+
 
 .contenedor-imagen{
     
@@ -36,10 +40,27 @@ label{
 }
 
 button{
-    margin-bottom: 2%;
-    margin-top: 2%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    color: white;
+    background-color:rgb(124, 20, 194);
 }
 
-@media screen and (max-width: 800px){
-    
+button:hover{
+    color: rgb(194, 194, 194);
+}
+
+
+@media screen and (max-width: 1000px){
+    .contenedor-tarjeta{
+        width: 60%;
+        margin-top: 20%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .contenedor-tarjeta{
+        width: 80%;
+        margin-top: 30%;
+    }
 }

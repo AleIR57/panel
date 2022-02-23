@@ -42,6 +42,7 @@ export class AgregarVentaComponent implements OnInit {
   pingCuenta:any;
 
 
+
   constructor(public formulario: FormBuilder, private crudService: CrudService, private ruteador: Router) { 
    
     this.formularioDeVentas= this.formulario.group({
@@ -127,6 +128,7 @@ export class AgregarVentaComponent implements OnInit {
     this.crudService.ObtenerProducto(this.formularioDeVentas.value['idProducto']).subscribe(respuesta=>{
       this.idProducto = respuesta[0]['idProducto'];
       this.precioProducto = respuesta[0]['precio'];
+      this.nombreProducto = respuesta[0]['nombre'];
       this.selectProducto = false;
     });
 

@@ -1,3 +1,4 @@
+import { ApartadoService } from './servicio/apartado.service';
 import { CrudService } from 'src/app/servicio/crud.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -23,18 +24,20 @@ saldo:any;
 creditos:any;
 cuentas:any;
 cuentasNoRenovadas:any = [];
+apartado:any
 
-constructor(private dataService: AuthService, private router: Router, private crudService:CrudService) {
-dataService.getLoggedInName.subscribe(name => this.changeName(name));
+constructor(private dataService: AuthService, private router: Router, private crudService:CrudService, private apartadoService: ApartadoService) {
+  
+
+  dataService.getLoggedInName.subscribe(name => this.changeName(name));
 if(this.dataService.isLoggedIn())
 {
-console.log("loggedin");
 this.loginbtn=false;
 this.logoutbtn=true
 
 if(this.dataService.isAdmin())
 {
-console.log("admin");
+
 this.adminbtn=true;
 this.router.navigateByUrl("/listar-venta");
 }
@@ -55,10 +58,11 @@ this.logoutbtn=false
 
 ngOnInit(): void {
 
+  this.apartado = this.apartadoService.obtenerApartado();
   if(location.pathname == "/listar-venta"){
     this.ventas = true;
   }
-  console.log("Correo:" + this.correoVendedorEncriptado);
+
   this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
   if (this.bytes.toString()) {
     this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));

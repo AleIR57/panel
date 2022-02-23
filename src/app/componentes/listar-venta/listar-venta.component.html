@@ -23,20 +23,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let venta of Ventas | paginate: { itemsPerPage:8, currentPage:pageActual}; let iControl = index">
+                <tr *ngFor = "let venta of Ventas; let iControl = index">
                     <td>{{venta.idVenta}}</td>
-                    <td *ngFor = "let obj of Productos[iControl]">{{obj.nombre}}</td>
+                    <td *ngFor = "let obj of Productos[iControl] ">{{obj.nombre}}</td>
                     <td *ngFor = "let obj2 of Clientes[iControl]">{{obj2.nombres}} {{obj2.apellidos}}</td>
                     <td>{{venta.cantidad}}</td>
                     <td>{{venta.precioTotal}}</td>
                     <td>{{venta.metodoPago}}</td>
-                    <td >{{venta.fecha | date:'dd-MM-yyyy h:mm'}}</td>
+                    <td >{{venta.fecha | date:'dd/MM/yyyy, h:mm a'}}</td>
                     <td>{{venta.observacion}}</td>
                     <td *ngIf="venta.estado == 'En trámite'"><a routerLink = "/editar-venta/{{venta.idVenta}}">{{venta.estado}}</a></td>
                     <td *ngIf="venta.estado != 'En trámite'">{{venta.estado}}</td>
                 </tr>
             </tbody>
         </table>
-        <pagination-controls  (pageChange)="pageActual = $event"></pagination-controls>
+       
     </div>
+
+ 
 </div>

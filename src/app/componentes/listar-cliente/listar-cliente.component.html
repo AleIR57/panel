@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let cliente of Clientes | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
+                <tr *ngFor = "let cliente of Clientes; let iControl = index">
                     <td>{{cliente.nombres}}</td>
                     <td>{{cliente.apellidos}}</td>
                     <td>{{cliente.whatsapp}}</td>
@@ -30,6 +30,6 @@
                 </tr>
             </tbody>
         </table>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+      
     </div>
 </div>

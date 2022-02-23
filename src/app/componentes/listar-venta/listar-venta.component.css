@@ -1,6 +1,7 @@
 .card{
     width: 160%;
     background-color: white;
+    
    
 }
 
@@ -10,8 +11,13 @@
 
 .card-body{
  background: white;
+
  
 }
+
+
+
+
 
 
 .info{
@@ -60,7 +66,26 @@
 @media screen and (max-width: 700px){
 
   .info{
-    display: none;
+    width: 40%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .info h5{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 380px){
+
+  .info{
+    width: 40%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+  .info h5{
+    font-size: 12px;
   }
 }
 

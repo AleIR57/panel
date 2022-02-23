@@ -1,4 +1,4 @@
-<div class = "info" ><h5>Cuentas: {{cantidadCuentas}}</h5><img src = "https://cdn0.iconfinder.com/data/icons/google-material-design-3-0/48/ic_account_circle_48px-512.png"></div>
+<div class = "info" ><h5>Cuentas totales: {{cantidadCuentas}}</h5><img src = "https://cdn0.iconfinder.com/data/icons/google-material-design-3-0/48/ic_account_circle_48px-512.png"></div>
 <div class = "info" ><h5>Sin renovar: {{cantidadCuentasNoRenovadas}}</h5><img src = "https://cdn-icons-png.flaticon.com/512/25/25173.png"></div>
 <div class = "card">
     <div class = "card-header">
@@ -22,12 +22,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let cuenta of Cuentas | paginate: {itemsPerPage:8, currentPage:pageActual}; let iControl = index">
+                <tr *ngFor = "let cuenta of Cuentas; let iControl = index">
                     <td *ngFor = "let obj of Productos[iControl]">{{obj.nombre}}</td>
                     <td>{{cuenta.correo}}</td>
                     <td>{{cuenta.contrasena}}</td>
-                    <td>{{cuenta.fechaInicio | date:'dd-MM-yyyy'}}</td>
-                    <td>{{cuenta.fechaExpiracion | date:'dd-MM-yyyy'}}</td>
+                    <td>{{cuenta.fechaInicio | date:'dd/MM/yyyy, h:mm a'}}</td>
+                    <td>{{cuenta.fechaExpiracion | date:'dd/MM/yyyy, h:mm a'}}</td>
                     <td>{{cuenta.nombrePerfil}}</td>
                     <td>{{cuenta.ping}}</td>
                     <td>{{cuenta.estado}}</td>
@@ -35,6 +35,6 @@
                 </tr>
             </tbody>
         </table>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+    
     </div>
 </div>
