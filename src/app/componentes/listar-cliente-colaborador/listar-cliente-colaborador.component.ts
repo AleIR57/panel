@@ -28,7 +28,7 @@ export class ListarClienteColaboradorComponent implements OnInit {
       this.crudService.ObtenerVendedorPorCorreo(this.correoVendedor).subscribe(respuesta=>{
         this.idVendedor = respuesta[0]['idVendedor'];
         this.crudService.ObtenerClientesDeColaborador(respuesta[0]['idVendedor']).subscribe(respuesta=>{
-          console.log(respuesta);
+          
           this.Clientes = respuesta;
           this.cantidadClientes = Object.keys(this.Clientes).length;
     
@@ -37,7 +37,7 @@ export class ListarClienteColaboradorComponent implements OnInit {
             this.crudService.ObtenerVendedor(this.Clientes[i]['idVendedor']).subscribe(respuesta=>{
               
               this.Vendedores.push(respuesta)
-              console.log(this.Vendedores);
+              
             });
           }
         });

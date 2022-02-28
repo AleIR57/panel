@@ -26,7 +26,7 @@ export class ListarVentaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.router.url);
+   
 
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {

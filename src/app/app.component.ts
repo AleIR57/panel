@@ -88,6 +88,7 @@ logout()
 this.dataService.deleteToken();
 this.dataService.deleteRole();
 window.location.href = window.location.href;
+window.location.reload();
 this.router.navigateByUrl("/login");
 this.logoutbtn = false;
 }

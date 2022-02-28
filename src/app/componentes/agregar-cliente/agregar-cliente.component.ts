@@ -32,7 +32,7 @@ export class AgregarClienteComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log("Correo:" + this.correoVendedorEncriptado);
+    
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {
       this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));

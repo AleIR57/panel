@@ -21,10 +21,10 @@ export class EditarClienteComponent implements OnInit {
 
   constructor(private activeRoute:ActivatedRoute, private crudService: CrudService, public formulario: FormBuilder, private ruteador:Router) {
     this.elID =  this.activeRoute.snapshot.paramMap.get('id');
-    console.log(this.elID);
+    
     this.crudService.ObtenerCliente(this.elID).subscribe(
       respuesta=>{
-        console.log(respuesta);
+        
         this.formularioDeClientes.setValue({
           nombres: respuesta[0]['nombres'],
           apellidos:  respuesta[0]['apellidos'],

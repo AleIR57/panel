@@ -52,8 +52,7 @@ export class EditarVendedorComponent implements OnInit {
   }
 
   enviarDatos():any{
-    console.log(this.elID);
-    console.log(this.formularioDeVendedores.value);
+  
     
 
 

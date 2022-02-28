@@ -1,7 +1,9 @@
+import { jsPDF } from 'jspdf';
 import { Router } from '@angular/router';
 import { CrudService } from 'src/app/servicio/crud.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-agregar-venta-colaborador',
@@ -53,7 +55,7 @@ export class AgregarVentaColaboradorComponent implements OnInit {
       precioTotal: [''],
       metodoPago:['Saldo'],
       fecha: new Date(),
-      observacion: [' '],
+      observacion: ['Venta realizada'],
       estado: ['En trámite'],
 
     })
@@ -84,7 +86,7 @@ export class AgregarVentaColaboradorComponent implements OnInit {
    
       this.selectProducto = false;
     }
-    console.log("Correo:" + this.correoVendedorEncriptado);
+   
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {
       this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
@@ -94,9 +96,9 @@ export class AgregarVentaColaboradorComponent implements OnInit {
         this.nombreVendedor = respuesta[0]['nombre'];
 
         this.crudService.ObtenerClientesDeColaborador(this.idVendedor).subscribe(respuesta=>{
-          console.log(respuesta);
+        
           this.Clientes = respuesta;
-          console.log("El id Cliente:" + this.formularioDeVentas.value['idCliente']);
+          
           
         });
        
@@ -214,7 +216,34 @@ export class AgregarVentaColaboradorComponent implements OnInit {
 
   cerrarModal(){
     this.abrirModal = false;
-    this.ruteador.navigateByUrl('listar-venta');
+    window.location.reload();
+    this.ruteador.navigateByUrl('listar-venta-colaborador');
+  }
+
+
+  downloadPDF() {
+    // Extraemos el
+    const DATA = document.getElementById('contenedor-modal')!;
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 5
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG');
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
+    });
   }
 
 }

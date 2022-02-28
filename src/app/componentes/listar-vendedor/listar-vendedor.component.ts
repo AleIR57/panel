@@ -26,7 +26,7 @@ export class ListarVendedorComponent implements OnInit {
         this.crudService.ObtenerRol(this.Vendedores[i]['idRol']).subscribe(respuesta=>{
           
           this.Roles.push(respuesta)
-          console.log(this.Roles);
+
         });
       }
     });

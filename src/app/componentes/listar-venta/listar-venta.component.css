@@ -104,18 +104,20 @@
 
   @media screen and (max-width: 500px){
     .card{
-      width: 400%;
+      width: 600%;
     }
   }
 
   @media screen and (max-width: 380px){
     .card{
-      width: 500%;
+      width: 700%;
     }
   }
 
   @media screen and (max-width: 330px){
     .card{
-      width: 700%;
+      width: 800%;
     }
   }
+
+

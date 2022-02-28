@@ -8,13 +8,13 @@ import { Cliente, Producto, Venta, Cuenta, Vendedor } from './Modelos';
   providedIn: 'root'
 })
 export class CrudService {
-  API: string= "http://localhost/crudPanel/clientes/"
-  API2: string = "http://localhost/crudPanel/productos/"
-  API3: string = "http://localhost/crudPanel/ventas/"
-  API4: string = "http://localhost/crudPanel/cuentas/"
-  API5: string = "http://localhost/crudPanel/vendedores/"
-  API6: string = "http://localhost/crudPanel/roles/"
-  API7: string = "http://localhost/crudPanel/ventas/index2.php"
+  API: string= "https://conexionproent.com/crudPanel/clientes/"
+  API2: string = "https://conexionproent.com/crudPanel/productos/"
+  API3: string = "https://conexionproent.com/crudPanel/ventas/"
+  API4: string = "https://conexionproent.com/crudPanel/cuentas/"
+  API5: string = "https://conexionproent.com/crudPanel/vendedores/"
+  API6: string = "https://conexionproent.com/crudPanel/roles/"
+  API7: string = "https://conexionproent.com/crudPanel/ventas/index2.php"
 
   constructor(private clienteHttp: HttpClient) { }
 

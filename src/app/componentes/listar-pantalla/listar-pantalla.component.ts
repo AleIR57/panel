@@ -19,14 +19,14 @@ export class ListarPantallaComponent implements OnInit {
   ngOnInit(): void {
 
     this.crudService.ObtenerVentas().subscribe(respuesta=>{
-      console.log(respuesta);
+     
       this.Ventas = respuesta;
 
-      console.log("sasadasd" + this.Ventas.length);
+   
       this.cantidadPantallas = Object.keys(this.Ventas).length;
     for(let i = 0; i < Object.keys(this.Ventas).length; i++){
       this.crudService.ObtenerCuenta(this.Ventas[i]['idCuenta']).subscribe(respuesta=>{
-        console.log(respuesta);
+        
         this.Cuentas.push(respuesta)
       });
 

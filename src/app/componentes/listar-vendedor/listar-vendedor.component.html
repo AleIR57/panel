@@ -27,9 +27,9 @@
                     <td>{{vendedor.numeroTelefono}}</td>
                     <td *ngFor = "let obj of Roles[iControl]">{{obj.nombre}}</td>
                     <td>{{vendedor.empresa}}</td>
-                    <td>{{vendedor.saldo}}</td>
-                    <td>{{vendedor.creditos}}</td>
-                    <td> <a class = "btn btn-info" routerLink = "/editar-vendedor/{{vendedor.idVendedor}}"><i class="fas fa-edit"></i></a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(vendedor.id,iControl)"><i class="fas fa-trash-alt"></i></a> </td>
+                    <td>$ {{vendedor.saldo}}</td>
+                    <td>$ {{vendedor.creditos}}</td>
+                    <td> <a class = "btn btn-info" routerLink = "/editar-vendedor/{{vendedor.idVendedor}}"><i class="fas fa-edit"></i></a>  | <a name = "" id = "" class = "btn btn-danger" (click)="borrarRegistro(vendedor.idVendedor,iControl)"><i class="fas fa-trash-alt"></i></a> </td>
                 </tr>
             </tbody>
         </table>

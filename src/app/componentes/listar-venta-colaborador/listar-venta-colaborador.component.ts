@@ -50,7 +50,6 @@ export class ListarVentaColaboradorComponent implements OnInit {
      
       this.Clientes = respuesta;
 
-      console.log("sasadasd" + this.Clientes.length);
 
       for(let i = 0; i < this.Clientes.length; i++){
         this.crudService.ObtenerVentasDeClientes(this.Clientes[i]['idCliente']).subscribe(respuesta=>{
@@ -62,7 +61,7 @@ export class ListarVentaColaboradorComponent implements OnInit {
 
           for(let k = 0; k < this.VentasAux2.length; k++){
             this.Ventas.push(this.VentasAux2[k]);
-            console.log(this.VentasAux2[k]);
+          
           }
 
           
@@ -85,13 +84,10 @@ export class ListarVentaColaboradorComponent implements OnInit {
 
 
 
-  
 
-  
 
   borrarRegistro(id:any, iControl:any){
-    console.log(id);
-    console.log(iControl);
+  
     if(window.confirm("¿Desea borrar el registro?")){
       this.crudService.BorrarVenta(id).subscribe((respuesta) =>{
         this.Ventas.splice(iControl, 1);

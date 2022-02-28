@@ -27,7 +27,7 @@ export class ListarPantallaColaboradorComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("Correo:" + this.correoVendedorEncriptado);
+   
     this.bytes = CryptoJS.AES.decrypt(this.correoVendedorEncriptado, this._secretKey);
     if (this.bytes.toString()) {
       this.correoVendedor = JSON.parse(this.bytes.toString(CryptoJS.enc.Utf8));
@@ -36,11 +36,10 @@ export class ListarPantallaColaboradorComponent implements OnInit {
         this.idVendedor = respuesta[0]['idVendedor'];
 
         this.crudService.ObtenerClientesDeColaborador(this.idVendedor).subscribe(respuesta=>{
-          console.log(respuesta);
+          
           this.Clientes = respuesta;
     
-          console.log("sasadasd" + this.Clientes.length);
-    
+        
           for(let i = 0; i < this.Clientes.length; i++){
             this.crudService.ObtenerVentasDeClientes(this.Clientes[i]['idCliente']).subscribe(respuesta=>{
               this.VentasAux.push(respuesta);
@@ -64,14 +63,7 @@ export class ListarPantallaColaboradorComponent implements OnInit {
                   this.cantidadPantallas = Object.keys(this.Productos).length;
                 });
               }
-
-        
-        
-
-            
-
-    
-              
+ 
               
             });
           }

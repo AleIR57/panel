@@ -11,7 +11,7 @@ providedIn: 'root'
 
 export class AuthService {
     redirectUrl!: string;
-    baseUrl:string = "http://localhost/crudPanel/php";
+    baseUrl:string = "https://conexionproent.com/crudPanel/php/";
     _secretKey:any = "dsfdadasd";
     correoVendedorEncriptado: any = localStorage.getItem('token');
   bytes:any;
