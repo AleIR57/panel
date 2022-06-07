@@ -39,11 +39,11 @@ if(this.dataService.isAdmin())
 {
 
 this.adminbtn=true;
-this.router.navigateByUrl("/listar-venta");
+
 }
 else{
   this.adminbtn=false;
-  this.router.navigateByUrl("/listar-venta-colaborador");
+
 }
 
 }

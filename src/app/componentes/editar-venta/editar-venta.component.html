@@ -26,9 +26,8 @@
         <div class="mb-3">
           <label for = "" class= "form-label text-wrap">Método de pago:</label>
           <select class="form-select" aria-label="Default select example" formControlName = "metodoPago" required>
-            <option value = "0" selected="selected">Selecciona un método de pago</option>
-            <option value = "Saldo text-wrap" >Saldo</option>
-            <option value = "Credito text-wrap" >Crédito</option>
+            <option value = "{{metodoPago}}" selected="selected">{{metodoPago}}</option>
+            <option value = "Credito" >Crédito</option>
           </select>
           <label for = "" class= "text-primary">Obligatorio</label>
         </div>

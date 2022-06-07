@@ -94,6 +94,7 @@ export class EditarVentaComponent implements OnInit {
     this.formularioDeVentas.value['precioTotal'] = this.precioTotal;
     this.formularioDeVentas.value['fecha'] = this.fecha;
     this.formularioDeVentas.value['estado'] = 'Tramitado';
+    this.formularioDeVentas.value['metodoPago'] = this.metodoPago;
     this.crudService.EditarVenta(this.elID, this.formularioDeVentas.value).subscribe(() =>{
       this.ruteador.navigateByUrl('/listar-venta')
     });

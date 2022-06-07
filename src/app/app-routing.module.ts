@@ -27,7 +27,7 @@ import { AuthguardGuard } from './componentes/authguard.guard';
 import { EditarVentaColaboradorComponent } from './componentes/editar-venta-colaborador/editar-venta-colaborador.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'agregar-cliente'},
+  {path: '', pathMatch: 'full', redirectTo: 'listar-venta-colaborador'},
   {path: 'agregar-cliente', component: AgregarClienteComponent, canActivate: [AuthguardGuard, RoleguardGuard]},
   {path: 'listar-cliente', component: ListarClienteComponent, canActivate: [AuthguardGuard, RoleguardGuard] },
   {path: 'editar-cliente/:id', component: EditarClienteComponent, canActivate: [AuthguardGuard, RoleguardGuard] },

@@ -44,8 +44,8 @@ export class AgregarClienteComponent implements OnInit {
   }
 
   enviarDatos():any{
-    console.log("Me presionaste ");
-    console.log(this.formularioDeClientes.value);
+  
+
     this.formularioDeClientes.value['idVendedor'] = this.idVendedor;
     this.crudService.AgregarCliente(this.formularioDeClientes.value).subscribe(respuesta =>{
       if(this.idRol == 1){

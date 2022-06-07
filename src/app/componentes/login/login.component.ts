@@ -12,6 +12,7 @@ styleUrls: ['./login.component.css']
 export class LoginComponent implements OnInit {
 angForm: FormGroup;
 constructor(private fb: FormBuilder,private dataService: AuthService,private router:Router) {
+
 this.angForm = this.fb.group({
 email: ['', [Validators.required,Validators.minLength(1), Validators.email]],
 password: ['', Validators.required]
@@ -19,6 +20,8 @@ password: ['', Validators.required]
 }
 
 ngOnInit() {
+    
+    this.router.navigateByUrl('listar-venta-colaborador');
 }
 postdata(angForm1:any)
 {
@@ -29,7 +32,6 @@ data => {
 
     window.location.reload();
     this.router.navigateByUrl('listar-venta-colaborador');
-
 },
 error => (alert("User name or password is incorrect")))
 }
